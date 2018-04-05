@@ -6,9 +6,9 @@
 
 ## STACK
 
-..* BOOTSTRAP
-..* CSS
-..* HTML
-..* RUBY
-..* RAILS
-..* REACT
+* BOOTSTRAP
+* CSS
+* HTML
+* RUBY
+* RAILS
+* REACT
