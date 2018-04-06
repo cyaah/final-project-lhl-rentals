@@ -4,5 +4,6 @@ class Profile < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  ## TODO VALIDATE NAME
+  validates :first_name, presence: true, length: {maximum:20}
+  validates :last_name, presence: true, length: {maximum:30}
 end
