@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180405232001) do
+=======
+ActiveRecord::Schema.define(version: 20180406005501) do
+>>>>>>> a2e6b6f34c9a10552e62315acd27b3d75a307624
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "categories", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -73,12 +78,53 @@ ActiveRecord::Schema.define(version: 20180405232001) do
   create_table "reviews", id: :serial, force: :cascade do |t|
     t.integer "product_id"
     t.integer "user_id"
+=======
+  create_table "bookings", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "profile_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "price_per_day"
+    t.integer "security_deposit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "image"
+    t.integer "price"
+    t.string "category"
+    t.date "start_availability"
+    t.date "end_availability"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "password"
+    t.text "phone"
+    t.text "address"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "booking_id"
+    t.integer "product_id"
+    t.integer "profile_id"
+>>>>>>> a2e6b6f34c9a10552e62315acd27b3d75a307624
     t.text "description"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -91,4 +137,6 @@ ActiveRecord::Schema.define(version: 20180405232001) do
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
   add_foreign_key "products", "categories"
+=======
+>>>>>>> a2e6b6f34c9a10552e62315acd27b3d75a307624
 end
