@@ -8,13 +8,27 @@
 
 puts "Seeding Data..."
 
+#Helper Funcions
+def open_asset(file_name)
+  File.open(Rails.root.join('db', 'Seed_assets', file_name))
+end
+
 puts "Finding or Creating Products..."
 
 
 #Products
 Product.destroy_all
 
-prod1 = Product.find_or_create_by! name: 'Snowboard'
-prod2 = Product.find_or_create_by! name: 'DJ Turntables'
+20.times do |index| 
+	Product.create! ({name: Faker::Name.name,
+					description: Faker::Lorem.sentence(20, false, 0),
+					image: open_asset('apparel5.jpg'),
+					price: 30,
+					category: 'Clothing',
+					start_availability: DateTime.new(2018, 4, 13),
+					end_availability: DateTime.new(2018, 06, 01)
+					})
+end
 
-
+p "Created #{Product.count} products"
+	
