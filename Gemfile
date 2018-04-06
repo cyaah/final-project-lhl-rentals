@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 
 # EXTRA GEMS
 
+gem 'omniauth', '~> 1.6'
+gem 'omniauth-facebook', '~> 4.0'
 gem 'devise','~> 4.2'
 gem 'rmagick'
 gem 'stripe'
