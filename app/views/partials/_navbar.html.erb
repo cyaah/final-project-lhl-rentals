@@ -22,9 +22,13 @@
                 role="button" aria-haspopup="true" aria-expanded="false">
                 <%= current_profile.email %> <span class="caret"></span>
             </a>
-            <li><%= link_to "Log out", destroy_profile_session_path, method: :delete %></li>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", profile_url(id: current_profile.id) %></li>
+              <li><%= link_to "Edit Profile", edit_profile_registration_path %></li>
+              <li><%= link_to "Log out", destroy_profile_session_path, method: :delete %></li>
+            </ul>
           </li>
-        
+
         <% end %>
 
       </ul>
@@ -32,7 +36,3 @@
     </div>
   </div>
 </nav>
-
-
-
-<

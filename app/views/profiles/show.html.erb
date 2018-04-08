@@ -6,13 +6,27 @@
     <div class="panel panel-default">
       <div class="panel-heading">Verification</div>
       <div class="panel-body">
+
         <ul class="sidebar-list">
-          <% if @profile.confirmation_token %>
-            <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
-          <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+          <li>Email Address
+            <ul>
+              <li><%= @profile.email %></li>
+            </ul>
+          </li>
+          <li>Phone Number
+            <ul>
+              <li><%= @profile.phone %></li>
+            </ul>
+          </li>
+          <li>Address
+            <ul>
+              <li><%= @profile.address %></li>
+            </ul>
+          </li>
         </ul>
+
       </div>
+      <li><%= link_to "Edit Profile", edit_profile_registration_path %></li>
     </div>
   </div>
 
