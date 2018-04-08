@@ -4,29 +4,35 @@
       <%= image_tag image_url('avatar4.png'), class: "img-thumbnail" %>
     </div>
     <div class="panel panel-default">
-      <div class="panel-heading">Verification</div>
+
+      <div class="panel-heading">Profile Details</div>
+
       <div class="panel-body">
 
-        <ul class="sidebar-list">
+        <ul class="sidebar-list list-unstyled">
           <li>Email Address
             <ul>
-              <li><%= @profile.email %></li>
+              <li><small class="text-muted"><%= @profile.email %></small></li>
             </ul>
           </li>
           <li>Phone Number
             <ul>
-              <li><%= @profile.phone %></li>
+              <li><small class="text-muted"><%= @profile.phone %></small></li>
             </ul>
           </li>
           <li>Address
             <ul>
-              <li><%= @profile.address %></li>
+              <li><small class="text-muted"><%= @profile.address %></small></li>
             </ul>
           </li>
         </ul>
 
       </div>
-      <li><%= link_to "Edit Profile", edit_profile_registration_path %></li>
+
+      <div class="panel-heading">
+        <%= link_to "Edit Profile", edit_profile_registration_path, class: "badge badge-info" %>
+      </div>
+
     </div>
   </div>
 
