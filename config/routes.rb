@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-	root to: 'products#index'
-
   root to: 'pages#index'
 
+  devise_for :profiles,
+             path: '',
+             path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'}
+             # controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
 
-  devise_for :profiles
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 	resources :products, only: [:index, :show]
 end
