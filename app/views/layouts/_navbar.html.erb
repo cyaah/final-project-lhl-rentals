@@ -9,9 +9,9 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Rental</a>
-      <button>Create Listing</button>
-      <button>Login</button>
-      <button>Sign Up</button>
+      <%= link_to "Registration",  new_profile_registration_path , class: "btn btn-primary" %>
+      <%= link_to "Login", new_profile_session_path , class: "btn btn-primary" %>
+      <%= link_to "Logout",  destroy_profile_session_path , class: "btn btn-primary"%>
     </div>
   </div>
 </nav>

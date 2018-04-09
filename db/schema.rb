@@ -10,20 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406212626) do
+ActiveRecord::Schema.define(version: 20180409002923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "profile_id"
-    t.date "start_date"
-    t.date "end_date"
-    t.integer "price_per_day"
-    t.integer "security_deposit"
+    t.date "from_date"
+    t.date "to_date"
+    t.integer "owner_rating"
+    t.text "owner_comments"
+    t.integer "rentor_rating"
+    t.text "rentor_comments"
+    t.boolean "rent_status"
+    t.bigint "profile_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_bookings_on_product_id"
+    t.index ["profile_id"], name: "index_bookings_on_profile_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -44,23 +49,12 @@ ActiveRecord::Schema.define(version: 20180406212626) do
     t.string "password"
     t.text "phone"
     t.text "address"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
     t.string "image"
-    t.index ["email"], name: "index_profiles_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_profiles_on_reset_password_token", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -73,4 +67,6 @@ ActiveRecord::Schema.define(version: 20180406212626) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "products"
+  add_foreign_key "bookings", "profiles"
 end

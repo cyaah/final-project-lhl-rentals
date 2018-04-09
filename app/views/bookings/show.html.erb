@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From date:</strong>
+  <%= @booking.from_date %>
+</p>
+
+<p>
+  <strong>To date:</strong>
+  <%= @booking.to_date %>
+</p>
+
+<p>
+  <strong>Owner rating:</strong>
+  <%= @booking.owner_rating %>
+</p>
+
+<p>
+  <strong>Owner comments:</strong>
+  <%= @booking.owner_comments %>
+</p>
+
+<p>
+  <strong>Rentor rating:</strong>
+  <%= @booking.rentor_rating %>
+</p>
+
+<p>
+  <strong>Rentor comments:</strong>
+  <%= @booking.rentor_comments %>
+</p>
+
+<p>
+  <strong>Rent status:</strong>
+  <%= @booking.rent_status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @booking.user.email %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @booking.item %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>
