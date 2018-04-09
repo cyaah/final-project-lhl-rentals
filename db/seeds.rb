@@ -22,7 +22,7 @@ Product.destroy_all
 20.times do |index| 
 	Product.create! ({name: Faker::Name.name,
 					description: Faker::Lorem.sentence(20, false, 0),
-					image: open_asset('apparel5.jpg'),
+					image: open_asset('bosch.jpg'),
 					price: 30,
 					category: 'Clothing',
 					start_availability: DateTime.new(2018, 4, 13),

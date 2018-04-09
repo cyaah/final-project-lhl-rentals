@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<fieldset>
+<h1>Currently Rented items</h1>
+<p>Total Item count: <%= @unreturned_bookings.count %> </p>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Item</th>
+      <th>From date</th>
+      <th>To date</th>
+      <th>Rent status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unreturned_bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.user.profile.last_name %></td>
+        <td><%= booking.user.profile.first_name %></td>
+        <td><%= booking.item.item_type %></td>
+        <td><%= booking.from_date %></td>
+        <td><%= booking.to_date %></td>
+        <td>  <%= form_for booking do |f| %>
+              <%= f.hidden_field :rent_status, value: 0 %>
+              <%= f.submit 'Return'  %>
+              <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</fieldset>
+
+
+<br>
+
+
+<fieldset>
+<h1>Past Rented items</h1>
+<p>Total Item count: <%= @returned_bookings.count %> </p>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Item</th>
+      <th>From date</th>
+      <th>To date</th>
+      <th>Rent status</th>
+      <th>updated</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @returned_bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.user.profile.last_name %></td>
+        <td><%= booking.user.profile.first_name %></td>
+        <td><%= booking.item.item_type %></td>
+        <td><%= booking.from_date %></td>
+        <td><%= booking.to_date %></td>
+        <td><%= form_for booking do |f| %>
+              <%= f.hidden_field :rent_status, value: 1 %>
+              <%= f.submit 'NotReturned'  %>
+              <% end %>
+          <%#= booking.rent_status %></td>
+        <td><%= booking.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</fieldset>
+<%#= link_to 'New Booking', new_booking_path %>

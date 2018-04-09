@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Short listed Items</h1>
+<%= form_tag bookings_path, method: "post" do %>
+<fieldset>
+  <% if (!user_signed_in?) %>
+    <p>You must Login or Join R.I.S.H. before you can continue</p>
+    <%= link_to('Login', new_user_session_path)  %> |
+    <%= link_to('Join', new_user_registration_path)  %>
+  <% else %>
+    <legend>Either Confirm or unconfirm items before hitting submit </legend>
+    <button type="submit">Submit</button>
+  <% end %>
+  <% @tally = 0 %>
+  <table>
+    <thead>
+      <tr>
+        <th>Confirm</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>item.cost</th>
+        <th>Owner_firstname</th>
+        <th>Owner_lastname</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @shortlist.each do |item| %>
+          <tr>
+            <td> <input type="checkbox" name="checked_confirm[]" value="<%= item.id %>" checked/> </td>
+            <td><%= item.item_type %> </td>
+            <td><%= item.description %> </td>
+            <td><%= item.cost %> </td>
+            <td><%= item.user.profile.first_name %>  </td>
+            <td><%= item.user.profile.last_name %>  </td>
+            <% @tally = @tally + item.cost %>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+  <p> Item Rental: $<%= @tally * 100 %> cents </p>
+</fieldset>
+<% end %>
