@@ -18,8 +18,8 @@
   <tbody>
     <% @unreturned_bookings.each do |booking| %>
       <tr>
-        <td><%= booking.user.profile.last_name %></td>
-        <td><%= booking.user.profile.first_name %></td>
+        <td><%= booking.profile.last_name %></td>
+        <td><%= booking.profile.first_name %></td>
         <td><%= booking.item.item_type %></td>
         <td><%= booking.from_date %></td>
         <td><%= booking.to_date %></td>
@@ -57,8 +57,8 @@
   <tbody>
     <% @returned_bookings.each do |booking| %>
       <tr>
-        <td><%= booking.user.profile.last_name %></td>
-        <td><%= booking.user.profile.first_name %></td>
+        <td><%= booking.profile.last_name %></td>
+        <td><%= booking.profile.first_name %></td>
         <td><%= booking.item.item_type %></td>
         <td><%= booking.from_date %></td>
         <td><%= booking.to_date %></td>

@@ -11,6 +11,7 @@ class Profile < ApplicationRecord
   has_many :products
   has_many :bookings
 
+
   # def self.from_omniauth(auth)
   #   profile = Profile.where(email: auth.info.email).first
   #

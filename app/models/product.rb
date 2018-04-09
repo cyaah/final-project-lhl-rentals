@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-  belongs_to :profile
+  belongs_to :profile, optional: true
   #belongs_to :category
   has_many :booking
 
