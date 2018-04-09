@@ -8,8 +8,9 @@ class Profile < ApplicationRecord
   validates :first_name, presence: true, length: {maximum:20}
   validates :last_name, presence: true, length: {maximum:30}
 
-  # has_many :products
-  # has_many :bookings
+   has_many :products
+   has_many :bookings
+
 
 
 end
