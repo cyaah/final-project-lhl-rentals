@@ -35,15 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
-# EXTRA GEMS
 
-gem 'omniauth', '~> 1.6'
-gem 'omniauth-facebook', '~> 4.0'
-gem 'devise','~> 4.2'
-gem 'rmagick'
-gem 'stripe'
-gem 'faker'
-gem "paperclip", "~> 6.0.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -63,7 +55,30 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
 
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# EXTRA GEMS
+gem "paperclip", "~> 6.0.0"
+
+#FOR FACEBOOK LOGIN
+# gem 'omniauth', '~> 1.6'
+# gem 'omniauth-facebook', '~> 4.0'
+
+#FLEXIBLE AUTHENTICATION SOLUTION
+gem 'devise','~> 4.2'
+
+#JAVASCRIPT LIBRARY FOR NON-BLOCKING NOTIFICATIONS
+gem 'toastr-rails'
+
+# RMAGICK IS AN INTERFACE BETWEEN RUBY AND IMAGEMAGICK.
+gem 'rmagick'
+
+# STRIPE PAYMENT METHOD
+gem 'stripe'
+
+# A LIBRARY FOR GENERATING FAKE DATA SUCH AS NAMES, ADDRESSES, AND PHONE NUMBERS.
+gem 'faker'
