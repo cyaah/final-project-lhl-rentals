@@ -36,16 +36,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.timestamps null: false
     end
 
-<<<<<<< HEAD:db/migrate/20180409175411_devise_create_users.rb
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-=======
-    add_index :profiles, :email,                unique: true
-    # add_index :profiles, :reset_password_token, unique: true
-    # add_index :profiles, :confirmation_token,   unique: true
-    # add_index :profiles, :unlock_token,         unique: true
->>>>>>> master:db/migrate/20180406001305_create_profiles.rb
   end
 end
