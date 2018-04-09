@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20180409195758) do
     t.integer "rentor_rating"
     t.text "rentor_comments"
     t.boolean "rent_status"
-    t.bigint "profile_id"
+    t.bigint "user_id"
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_bookings_on_product_id"
-    t.index ["profile_id"], name: "index_bookings_on_profile_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -53,7 +53,15 @@ ActiveRecord::Schema.define(version: 20180409195758) do
     t.integer  "category_id"
   end
 
-
+  create_table "reviews", force: :cascade do |t|
+      t.integer "booking_id"
+      t.integer "product_id"
+      t.integer "profile_id"
+      t.text "description"
+      t.integer "rating"
+      t.datetime "created_at", null: false
+      t.datetime "updated_at", null: false
+    end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
