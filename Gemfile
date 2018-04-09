@@ -43,7 +43,7 @@ gem 'devise','~> 4.2'
 gem 'rmagick'
 gem 'stripe'
 gem 'faker'
-
+gem "paperclip", "~> 6.0.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
