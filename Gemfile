@@ -35,16 +35,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
-# EXTRA GEMS
-
-gem 'omniauth', '~> 1.6'
-gem 'omniauth-facebook', '~> 4.0'
-gem 'devise','~> 4.2'
-gem 'rmagick'
-gem 'stripe'
-gem 'faker'
-
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -67,3 +57,25 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# EXTRA GEMS
+
+#FOR FACEBOOK LOGIN
+# gem 'omniauth', '~> 1.6'
+# gem 'omniauth-facebook', '~> 4.0'
+
+#FLEXIBLE AUTHENTICATION SOLUTION
+gem 'devise','~> 4.2'
+
+#JAVASCRIPT LIBRARY FOR NON-BLOCKING NOTIFICATIONS
+gem 'toastr-rails'
+
+# RMAGICK IS AN INTERFACE BETWEEN RUBY AND IMAGEMAGICK.
+gem 'rmagick'
+
+# STRIPE PAYMENT METHOD
+gem 'stripe'
+
+# A LIBRARY FOR GENERATING FAKE DATA SUCH AS NAMES, ADDRESSES, AND PHONE NUMBERS.
+gem 'faker'

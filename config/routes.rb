@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
 
-
   root to: 'pages#index'
+
 
   resources :bookings
   resources :products
 
 
+  devise_for :profiles,
+             path: '',
+             path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
+             controllers: {registrations: 'registrations'}
 
-  devise_for :profiles
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+	resources :products, only: [:index, :show]
+  resources :profiles, only: [:show]
 end
