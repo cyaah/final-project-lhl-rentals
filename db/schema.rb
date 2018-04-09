@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20180409195758) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
