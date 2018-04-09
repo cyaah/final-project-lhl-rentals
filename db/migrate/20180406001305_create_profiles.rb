@@ -8,11 +8,11 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.text :address
       ## Database authenticatable
       t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :password, null: false, default: ""
 
       ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
+      # t.string   :reset_password_token
+      # t.datetime :reset_password_sent_at
 
       ## Rememberable
       t.datetime :remember_created_at
@@ -40,7 +40,7 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
     end
 
     add_index :profiles, :email,                unique: true
-    add_index :profiles, :reset_password_token, unique: true
+    # add_index :profiles, :reset_password_token, unique: true
     # add_index :profiles, :confirmation_token,   unique: true
     # add_index :profiles, :unlock_token,         unique: true
   end

@@ -231,12 +231,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-<<<<<<< HEAD
-  omniauth (~> 1.6)
-  omniauth-facebook (~> 4.0)
   paperclip (~> 6.0.0)
-=======
->>>>>>> 279d52b854842777fef46018da28d8095ff10c0c
   pg
   puma (~> 3.7)
   rails (~> 5.1.6)

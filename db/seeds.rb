@@ -19,7 +19,7 @@ puts "Finding or Creating Products..."
 #Products
 Product.destroy_all
 
-20.times do |index| 
+15.times do |index| 
 	Product.create! ({name: Faker::Name.name,
 					description: Faker::Lorem.sentence(20, false, 0),
 					image: open_asset('bosch.jpg'),
@@ -29,6 +29,16 @@ Product.destroy_all
 					end_availability: DateTime.new(2018, 06, 01)
 					})
 end
+
+	Product.create! ({name: Faker::Name.name,
+					description: Faker::Lorem.sentence(20, false, 0),
+					image: open_asset('bosch.jpg'),
+					price: 30,
+					category: 'Tools',
+					start_availability: DateTime.new(2018, 4, 13),
+					end_availability: DateTime.new(2018, 06, 01)
+					})
+
 
 p "Created #{Product.count} products"
 	

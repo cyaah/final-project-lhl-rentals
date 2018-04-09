@@ -5,6 +5,24 @@ class ProductsController < ApplicationController
 
 	def show
 		 @product = Product.find params[:id]
+		 @review = Review.new
 	end
 
+  	def new
+    @product = Product.new
+  	end
+
+	def create 
+		@product = Product.new(product_params)
+	end
+
+	 def product_params
+    params.require(:product).permit(
+      :name,
+      :description,
+      :category_id,
+      :image,
+      :price
+    )
+  end
 end
