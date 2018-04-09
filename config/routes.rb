@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :bookings
   resources :products, only: [:index, :show]
   resources :users, only: [:show]
+  resources :categories, only: [:index, :show]
 
 
   devise_for :users,

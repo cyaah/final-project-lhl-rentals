@@ -3,10 +3,10 @@
 <h1>Short listed Items</h1>
 <%= form_tag bookings_path, method: "post" do %>
 <fieldset>
-  <% if (!user_signed_in?) %>
-    <p>You must Login or Join R.I.S.H. before you can continue</p>
-    <%= link_to('Login', new_user_session_path)  %> |
-    <%= link_to('Join', new_user_registration_path)  %>
+  <% if (!profile_signed_in?) %>
+    <p>You must Login before you can continue</p>
+    <%= link_to('Login', new_profile_session_path)  %> |
+    <%= link_to('Join', new_profile_registration_path)  %>
   <% else %>
     <legend>Either Confirm or unconfirm items before hitting submit </legend>
     <button type="submit">Submit</button>
@@ -30,8 +30,8 @@
             <td><%= item.item_type %> </td>
             <td><%= item.description %> </td>
             <td><%= item.cost %> </td>
-            <td><%= item.user.profile.first_name %>  </td>
-            <td><%= item.user.profile.last_name %>  </td>
+            <td><%= item.profile.first_name %>  </td>
+            <td><%= item.profile.last_name %>  </td>
             <% @tally = @tally + item.cost %>
           </tr>
         <% end %>
