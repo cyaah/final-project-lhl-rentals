@@ -1,14 +1,24 @@
+# README
 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## ABOUT
+Things you may want to cover:
 
- **_Rentals_**  is a web application that allows people to rent their "rare" used items to others for a short period of time. The user can offers his available items for other to rent or rent from someone else. Who is renting can save money not buy a item to use a single time at the same time the other person can make some extra cash.
+* Ruby version
 
-## STACK
+* System dependencies
 
-* BOOTSTRAP
-* CSS
-* HTML
-* RUBY
-* RAILS
-* REACT
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

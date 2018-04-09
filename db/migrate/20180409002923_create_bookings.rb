@@ -8,7 +8,7 @@ class CreateBookings < ActiveRecord::Migration[5.1]
       t.integer :rentor_rating
       t.text :rentor_comments
       t.boolean :rent_status
-      t.references :profile, foreign_key: true
+      t.references :user, foreign_key: true
       t.references :product, foreign_key: true
 
       t.timestamps

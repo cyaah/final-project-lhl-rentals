@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '6c7cb147b6e171116abad8a79b0861029dea33ba02e11195fa4836c176c5e459329c11e2a014b4cbc51aa1e0efecfd3c1d7a21548440d85556f45035ba8589fb'
+  # config.secret_key = '383df1feb6fd9675c2c56ef7e5854308dda21e766bc84296449a7795cf326b251e45fff508a7bbe9842f64f5b131f941ed7fb91809ce193dc01ba90071c83833'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'Rentals - LighthouseLabs <no-reply@rentals.com>'
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c786c016e8870e2d368abb4d46139408d1695ce5c1cca404e85de20c34d48e1257aa6ed594f1e3966dab24abcf1c23aadb90c79bd09aa850042226fa8540b664'
+  # config.pepper = '470dbcfe27c65f1bbd03c69d43b6c9e75409a74cdad1c39ac5432006bb0130a05fa4452ca09a94496d47f1339e3663b1740abfad8d6f500868f096dd5a274fef'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -142,7 +142,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = false
+  config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -163,7 +163,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 4..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -280,6 +280,4 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  # config.omniauth :facebook, ENV['YOUR_FACEBOOK_ID'], ENV['YOUR_FACEBOOK_SECRET'], scope: 'email', info_fields: 'email, name'
-
 end
