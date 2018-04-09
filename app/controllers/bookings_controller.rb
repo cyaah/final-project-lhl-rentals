@@ -12,8 +12,8 @@ class BookingsController < ApplicationController
 
   def showrented
     if params["rented_items"]
-      @unreturned_bookings = Booking.where(user: current_profile, rent_status: true)
-      @returned_bookings = Booking.where(user: current_profile, rent_status: false)
+      @unreturned_bookings = Booking.where(user: current_user, rent_status: true)
+      @returned_bookings = Booking.where(user: current_user, rent_status: false)
     end
   end
 
@@ -21,8 +21,8 @@ class BookingsController < ApplicationController
   # GET /bookings.json
   def index
     #@bookings = Booking.all
-    @bookings = Booking.where(user: current_profile, rent_status: true)
-    @returned_bookings = Booking.where(user: current_profile, rent_status: false)
+    @bookings = Booking.where(user: current_user, rent_status: true)
+    @returned_bookings = Booking.where(user: current_user, rent_status: false)
   end
 
   # GET /bookings/1
@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
       #@items = Item.all
       @itemids = Item.where(id: params["checked_confirm"])
       @itemids.each do |itemid|
-        @booking = Booking.create(from_date: Date.today + 2, to_date: Date.today + 5, owner_rating: 5, owner_comments: 'No commenets posted', rentor_rating: 5, rentor_comments: 'No comments posted', rent_status: true, profile_id: current_profile.id, item_id: itemid.id )
+        @booking = Booking.create(from_date: Date.today + 2, to_date: Date.today + 5, owner_rating: 5, owner_comments: 'No commenets posted', rentor_rating: 5, rentor_comments: 'No comments posted', rent_status: true, user_id: current_user.id, item_id: itemid.id )
       end
 
     else
@@ -69,7 +69,7 @@ class BookingsController < ApplicationController
 
   # item return PATCH
   def returned
-    if @booking.profile_id == current_profile.id
+    if @booking.user_id == current_user.id
         @booking.rent_status = !@booking.rent_status
 
       respond_to do |format|
@@ -119,6 +119,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:from_date, :to_date, :owner_rating, :owner_comments, :rentor_rating, :rentor_comments, :rent_status, :profile_id, :item_id)
+      params.require(:booking).permit(:from_date, :to_date, :owner_rating, :owner_comments, :rentor_rating, :rentor_comments, :rent_status, :user_id, :item_id)
     end
 end
