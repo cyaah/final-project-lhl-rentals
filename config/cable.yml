@@ -7,4 +7,4 @@ test:
 production:
   adapter: redis
   url: redis://localhost:6379/1
-  channel_prefix: final-project-lhl-rentals_production
+  channel_prefix: rentals_production

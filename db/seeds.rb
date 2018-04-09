@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 puts "Seeding Data..."
 
 #Helper Funcions
@@ -19,7 +18,7 @@ puts "Finding or Creating Products..."
 #Products
 Product.destroy_all
 
-20.times do |index| 
+5.times do |index|
 	Product.create! ({name: Faker::Name.name,
 					description: Faker::Lorem.sentence(20, false, 0),
 					image: open_asset('bosch.jpg'),
@@ -31,4 +30,3 @@ Product.destroy_all
 end
 
 p "Created #{Product.count} products"
-	

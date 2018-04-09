@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 
-  belongs_to :profile
+  belongs_to :user, optional: true
   #belongs_to :category
   has_many :booking
 
