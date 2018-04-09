@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :bookings
   resources :products
+  resources :categories
 
 
   devise_for :profiles,
@@ -17,4 +18,5 @@ Rails.application.routes.draw do
 
 	resources :products, only: [:index, :show]
   resources :profiles, only: [:show]
+  resources :categories, only: [:index, :show]
 end

@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180409002923) do
-
-
+ActiveRecord::Schema.define(version: 20180409195758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +31,17 @@ ActiveRecord::Schema.define(version: 20180409002923) do
     t.index ["profile_id"], name: "index_bookings_on_profile_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "image"
     t.integer "price"
-    t.string "category"
     t.date "start_availability"
     t.date "end_availability"
     t.datetime "created_at", null: false
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 20180409002923) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "category_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -62,15 +65,11 @@ ActiveRecord::Schema.define(version: 20180409002923) do
     t.string "provider"
     t.string "uid"
     t.string "image"
-
-
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-     t.index ["confirmation_token"], name: "index_profiles_on_confirmation_token", unique: true
+    t.index ["confirmation_token"], name: "index_profiles_on_confirmation_token", unique: true
     t.index ["email"], name: "index_profiles_on_email", unique: true
-     # t.index ["reset_password_token"], name: "index_profiles_on_reset_password_token", unique: true
-
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -83,7 +82,8 @@ ActiveRecord::Schema.define(version: 20180409002923) do
     t.datetime "updated_at", null: false
   end
 
-   add_foreign_key "bookings", "products"
-   add_foreign_key "bookings", "profiles"
-   add_foreign_key "reviews" , "products"
+  add_foreign_key "bookings", "products"
+  add_foreign_key "bookings", "profiles"
+  add_foreign_key "reviews", "products"
+  add_foreign_key "products", "categories"
 end
