@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-8 <%= current_user.present? == true ? "row" : "hidden" %> ">
+    <%= form_for ([@product, @product.reviews.build]) do |f| %>
+    <p> <%= f.text_area :description %> </p>
+      <p> <%= f.select :rating, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], {}, {class:"form-control form-control-lg"} %> </p>
+    <p> <%= f.submit class: "btn btn-primary" %> </p>
+    <% end %>
+  </div>
+</div>
+
+  <% @product.reviews.reverse.each do |review| %>
+    <% if review.description.present? %>
+    <div class="col-sm-4 reviews">
+      <dl class="dl-horizontal">
+        <dt>Description</dt>
+        <dd><%= review.description %></dd>
+        <dt>Rating </dt>
+        <dd>
+          <% review.rating.to_i.times do  %>
+          <span class="glyphicon glyphicon-star">  </span>
+          <% end %>
+          <% review.blank_stars.to_i.times do  %>
+           <span class="glyphicon glyphicon-star-empty">  </span>
+          <% end %>
+        </dd>
+        <dt>Date</dt>
+        <dd><%= review.created_at.strftime("%b %d, %Y") %></dd>
+        <dt>
+        <% if current_user.present? && review.user_id == current_user.id %>
+          <%= form_for [@product, review], method: :delete  do |f| %>
+          <%= f.button "Delete"%>
+          <% end %>
+        <% end %>
+        </dt>
+      </dl>
+    </div>
+  <% end %>
+<% end %>
