@@ -2,9 +2,15 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :bookings
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :reviews
+  end
   resources :users, only: [:show]
+
+
+
   resources :categories, only: [:index, :show]
+
 
 
   devise_for :users,

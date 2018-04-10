@@ -1,18 +1,18 @@
-class ProductsController < ApplicationController	
-	def index 
+class ProductsController < ApplicationController
+
+  def index
 		@product = Product.all
 	end
 
 	def show
 		 @product = Product.find params[:id]
-		 @review = Review.new
 	end
 
-  	def new
+	def new
     @product = Product.new
-  	end
+	end
 
-	def create 
+	def create
 		@product = Product.new(product_params)
 	end
 
