@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :bookings
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :new, :create]
   resources :users, only: [:show]
   resources :categories, only: [:index, :show]
 
