@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :category, optional: true
 
-  has_many :booking
+  has_many :bookings
   has_many :reviews
 
 

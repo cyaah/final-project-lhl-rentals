@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-		@product = Product.all
+		# @product = Product.all
 	end
 
 	def show
@@ -9,11 +9,17 @@ class ProductsController < ApplicationController
 	end
 
 	def new
-    @product = Product.new
+    	@product = Product.new
 	end
 
 	def create
 		@product = Product.new(product_params)
+		@product.user = current_user
+
+		if @product.save
+			redirect_to ('/')
+		end
+
 	end
 
 	 def product_params
