@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20180409195758) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,18 +50,8 @@ ActiveRecord::Schema.define(version: 20180409195758) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "category_id"
+    t.integer "category_id"
   end
-
-  create_table "reviews", force: :cascade do |t|
-      t.integer "booking_id"
-      t.integer "product_id"
-      t.integer "profile_id"
-      t.text "description"
-      t.integer "rating"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-    end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "booking_id"
@@ -97,6 +85,6 @@ ActiveRecord::Schema.define(version: 20180409195758) do
 
   add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
-  add_foreign_key "reviews", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "reviews", "products"
 end

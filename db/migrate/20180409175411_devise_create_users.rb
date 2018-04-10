@@ -5,11 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
-<<<<<<< HEAD:db/migrate/20180406001305_create_profiles.rb
-      # t.string :encrypted_password, null: false, default: ""
-=======
       t.string :password, null: false, default: ""
->>>>>>> master:db/migrate/20180409175411_devise_create_users.rb
 
       ## Recoverable
       # t.string   :reset_password_token

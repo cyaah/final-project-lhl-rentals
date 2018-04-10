@@ -1,62 +1,18 @@
-<%= form_for(booking) do |f| %>
-  <% if booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+<%= form_for([@product, @product.bookings.new]) do |f| %>
+<%= f.text_field :from_date %>
+<%= f.text_field :to_date %>
 
-      <ul>
-      <% booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :from_date %>
-    <%= f.date_select :from_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :to_date %>
-    <%= f.date_select :to_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :owner_rating %>
-    <%= f.number_field :owner_rating %>
-  </div>
-
-  <div class="field">
-    <%= f.label :owner_comments %>
-    <%= f.text_area :owner_comments %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rentor_rating %>
-    <%= f.number_field :rentor_rating %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rentor_comments %>
-    <%= f.text_area :rentor_comments %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rent_status %>
-    <%= f.check_box :rent_status %>
-  </div>
-
-  <div class="field">
-    <%= f.label :profile_id %>
-    <%= f.text_field :profile_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :product_id %>
-    <%= f.text_field :product_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<br/>
+<%= f.submit "Book Now", class: "btn btn-normal btn-block"%>
 <% end %>
+
+<script>
+  $(function(){
+    $('#booking_from_date').datepicker({
+      dateFormat: 'dd-mm-yy'
+    });
+    $('#booking_to_date').datepicker({
+      dateFormat: 'dd-mm-yy'
+    });
+  });
+</script>
