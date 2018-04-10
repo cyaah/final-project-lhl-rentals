@@ -19,7 +19,7 @@
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd> 
+          <dd><%= @product.price %></dd>
           <dt> Review </dt>
           <dd>Description</dd>
         </dl>
@@ -28,10 +28,15 @@
         <div class='row'>
           <dl class ='dl-horizontal'>
 
-          </dl>        
+          </dl>
         </div>
-
+        <div class="col-md-4">
+          <%= render 'bookings/form' %>
       </div>
+
+
+      <%= render 'partials/review' %>
+
 
   </article>
 

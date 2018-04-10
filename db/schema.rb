@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409195758) do
+
+
+ActiveRecord::Schema.define(version: 20180410175950) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +30,13 @@ ActiveRecord::Schema.define(version: 20180409195758) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
+    t.integer "total"
     t.index ["product_id"], name: "index_bookings_on_product_id"
-    t.index ["user_id"], name: "index_bookings_on_profile_id"
+
+
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+
   end
 
   create_table "categories", force: :cascade do |t|
@@ -40,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180409195758) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.integer "user_id"
     t.string "image"
     t.integer "price"
     t.date "start_availability"
@@ -50,20 +59,21 @@ ActiveRecord::Schema.define(version: 20180409195758) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "category_id"
+    t.integer "category_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-     t.integer "booking_id"
-     t.integer "product_id"
-     t.integer "profile_id"
-     t.text "description"
-     t.integer "rating"
-     t.datetime "created_at", null: false
-     t.datetime "updated_at", null: false
-   end
-
-
+    t.integer "product_id"
+    t.integer "profile_id"
+    t.text "description"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+  
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -86,6 +96,6 @@ ActiveRecord::Schema.define(version: 20180409195758) do
 
   add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
-  add_foreign_key "reviews", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "reviews", "products"
 end
