@@ -8,9 +8,10 @@ class BookingsController < ApplicationController
     days = (to_date - from_date).to_int + 1
 
 
-    @booking = current_user.booking.build(booking_params)
+    @booking = current_user.bookings.build(booking_params)
+    @booking.user_id = current_user.id
     @booking.product = product
-    @boooking.price = product.price
+    @booking.price = product.price
     @booking.total = product.price * days
     @booking.save
 
