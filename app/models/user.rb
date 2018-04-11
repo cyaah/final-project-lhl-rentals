@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :products
   has_many :bookings
 
-  has_many :user_reviews, class_name: "Review"  
+  has_many :user_reviews, class_name: "Review"
+
 end

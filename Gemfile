@@ -82,3 +82,5 @@ gem 'stripe'
 
 # A LIBRARY FOR GENERATING FAKE DATA SUCH AS NAMES, ADDRESSES, AND PHONE NUMBERS.
 gem 'faker'
+
+gem 'jquery-ui-rails', '~> 5.0'
