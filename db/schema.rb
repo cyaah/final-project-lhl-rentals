@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180410175950) do
     t.integer "rentor_rating"
     t.text "rentor_comments"
     t.boolean "rent_status"
+    t.bigint "owner_id"
     t.bigint "user_id"
     t.bigint "product_id"
     t.datetime "created_at", null: false
