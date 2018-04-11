@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20180411164121) do
 
   add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
+  add_foreign_key "products", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "reviews", "products"
 end

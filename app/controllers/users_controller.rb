@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 
   def show
+
+    @user = User.find(params[:id])
+    @booking = @user.bookings.includes(:product)
+    @products = @user.products
+ 
     if current_user.stripe_id.blank?
       @user = User.find(params[:id])
       @booking = @user.bookings
@@ -57,3 +62,4 @@ class UsersController < ApplicationController
         redirect_to payment_method_path
       end
   end
+

@@ -6,8 +6,9 @@ class User < ApplicationRecord
 
   validates :fullname, presence: true, length: {maximum: 50}
 
-  has_many :products
-  has_many :bookings
+  has_many :products, dependent: :destroy
+
+  has_many :bookings, dependent: :destroy
 
   has_many :reviews
 

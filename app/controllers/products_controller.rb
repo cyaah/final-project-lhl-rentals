@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 
 	def show
 		 @product = Product.find params[:id]
-
+		 puts @product.inspect
 
 	end
 
@@ -22,6 +22,14 @@ class ProductsController < ApplicationController
 			redirect_to ('/')
 		end
 
+	end
+
+	def destroy
+
+		@product = Product.find params[:id]
+		@user = @product.user
+		@product.destroy
+		redirect_to @user, notice: "Product deleted"	
 	end
 
 	 def product_params

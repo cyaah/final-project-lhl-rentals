@@ -54,8 +54,8 @@
     <h2><%= @user.fullname%></h2>
   </div>
 <article class="product">
-    <h3>Rented Stuff</h3>
-    <% @product.each do |product| %>
+    <h3>My ads</h3>
+    <% @products.each do |product| %>
     <div class="products">
     <tr>
 
@@ -64,18 +64,33 @@
          <td><%= product.description %></td>
 
     </tr>
+    <% if current_user %>
+      <% if current_user.id === product.user_id %>
+
+        <%= button_to "delete", product_path(product.id), :method=> :delete %>
+        <% end %>
+      <% end %>
     <% end %>
   </article>
-    <p>Stuff You have rented</p>
+
     </div>
 
 
-    <h3>Lent stuff</h3>
+    <h3>Rented stuff</h3>
     <p>Stuff you have rented out </p>
+    <% @booking.each do |booking| %>
+    <div class="products">
+      <tr>
+        <td><h3><%= booking.product.name %></h3></td>
+        <td> <%=image_tag booking.product.image.url(:medium) %></td>
+           <td><%= booking.product.description %></td>   
 
-  </div> -->
-<!--
-<button class="tablink" onclick="openPage('Rented', this, 'red')" id="defaultOpen">Rent</button>
-<button class="tablink" onclick="openPage('Lent', this, 'green')">Lent</button>
- -->
+      </tr>
+          <% end %>
+    </div>
+
+
+  </div> 
+
+
 </div>
