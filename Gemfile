@@ -78,7 +78,8 @@ gem 'toastr-rails'
 gem 'rmagick'
 
 # STRIPE PAYMENT METHOD
-gem 'stripe'
+gem 'stripe', '~>3.0.0'
+gem 'rails-assets-card', source: 'https://rails-assets.org'
 
 # A LIBRARY FOR GENERATING FAKE DATA SUCH AS NAMES, ADDRESSES, AND PHONE NUMBERS.
 gem 'faker'
