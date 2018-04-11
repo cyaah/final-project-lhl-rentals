@@ -9,8 +9,8 @@ class Product < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :category, optional: true
 
-  has_many :bookings
-  has_many :reviews
+  has_many :bookings, :dependent => :destroy
+  has_many :reviews, :dependent => :destroy
 
 
 
