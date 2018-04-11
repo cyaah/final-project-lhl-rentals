@@ -40,8 +40,11 @@
 
       <div class="panel-heading">
         <%= link_to "Edit Profile", edit_user_registration_path, class: "badge badge-info" %>
-        <%= link_to "Add Payment Method", payment_method_path, class: "badge badge-info" %>
-
+        <% if @card.blank? %>
+          <%= link_to "Add Payment Method", payment_method_path, class: "badge badge-info" %>
+        <% else @card %>
+          <%= link_to "Edit Payment Method", payment_method_path, class: "badge badge-info" %>
+        <% end %>  
       </div>
 
     </div>

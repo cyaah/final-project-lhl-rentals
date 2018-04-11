@@ -3,7 +3,7 @@
 <%= f.text_field :to_date %>
 
 <br/>
-<%= f.submit "Book Now", class: "btn btn-normal btn-block"%>
+<%= f.submit "Book Now", { :class => 'btn btn-normal btn-block', 'data-toggle' => 'modal', 'data-target' => '#exampleModalCenter'} %>
 <% end %>
 
 <script>
