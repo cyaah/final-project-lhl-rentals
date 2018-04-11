@@ -1,20 +1,25 @@
 Rails.application.routes.draw do
+
+  # ROOT
   root 'pages#index'
 
-
-
+  # PRODUCTS
   resources :products, only: [:index, :show, :new, :create] do
     resources :reviews
   end
 
-  resources :users, only: [:show]
+  # CATEGORIES
   resources :categories, only: [:index, :show]
-  devise_for :users,
-             path: '',
-             path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
-             # To overide update profile without have to input current password
-             controllers: {registrations: 'registrations'}
 
+  # USER - USER DEVISE GEM
+  resources :users, only: [:show]
+  devise_for :users,
+  path: '',
+  path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
+  # TO OVERIDE UPDATE PROFILE WITHOUT HAVE TO INPUT CURRENT PASSWORD
+  controllers: {registrations: 'registrations'}
+
+  #BOOKING
   resources :products, except: [:edit] do
     member do
       get 'listing'
@@ -23,5 +28,13 @@ Rails.application.routes.draw do
     end
     resources :bookings, only: [:create, :destroy]
   end
+
+  # STRIPE
+  get '/payment_method' => "users#payment"
+  post '/add_card' => "users#add_card"
+
+
+
+
 
 end

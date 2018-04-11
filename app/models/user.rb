@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
 
-  has_many :user_reviews, class_name: "Review"
+  has_many :reviews
 
 end

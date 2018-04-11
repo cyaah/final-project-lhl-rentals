@@ -2,5 +2,44 @@
 @import "bootstrap";
 @import "toastr";
 
-// INDEX PAGE 
+// INDEX PAGE
 @import "pages.scss";
+
+
+.container {
+  width: 60%;
+}
+
+
+//STRIPE FORM
+
+#add-card form {
+  width: 480px;
+  margin: 20px auto;
+}
+
+#add-card label {
+  position: relative;
+  color: #6A7C94;
+  font-weight: 400;
+  height: 48px;
+  line-height: 48px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+#add-card label > span {
+  float: left;
+}
+
+.card {
+  padding-bottom: 15px;
+}
+
+.outcome {
+  float: left;
+  width: 100%;
+  padding-top: 8px;
+  min-height: 20px;
+  text-align: center;
+}

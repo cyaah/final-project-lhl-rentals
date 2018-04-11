@@ -16,4 +16,5 @@
 //= require jquery-ui/datepicker
 //= require toastr
 //= require turbolinks
+//= require card
 //= require_tree .
