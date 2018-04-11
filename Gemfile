@@ -42,6 +42,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
 end
 
 group :development do
@@ -85,3 +86,6 @@ gem 'rails-assets-card', source: 'https://rails-assets.org'
 gem 'faker'
 
 gem 'jquery-ui-rails', '~> 5.0'
+
+# Load .ENV secret_keys
+gem 'dotenv-rails', groups: [:development, :test]
