@@ -3,4 +3,8 @@ class PagesController < ApplicationController
     @products = Product.all
     @categories = Category.all
   end
+
+  def booking_confirmation
+  end  
+
 end

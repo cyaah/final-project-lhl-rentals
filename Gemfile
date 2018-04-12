@@ -87,5 +87,5 @@ gem 'faker'
 
 gem 'jquery-ui-rails', '~> 5.0'
 
-# Load .ENV secret_keys
+# LOAD .ENV SECRET_KEYS
 gem 'dotenv-rails', groups: [:development, :test]

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :destroy]
   end
 
+
   # STRIPE
   get '/payment_method' => "users#payment"
   post '/add_card' => "users#add_card"
