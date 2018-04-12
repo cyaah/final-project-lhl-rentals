@@ -6,7 +6,7 @@
   </header>
   	<article class="product">
 
-  		<%  @product.each do |product| %>
+  		<%  @products.each do |product| %>
 		   <div class="products">
 		   	<tr>
   	 		 <td><h3><%=link_to  product.name,  product_path(product.id) %></h3></td>

@@ -54,6 +54,7 @@
 
     <h2><%= @user.fullname%></h2>
 
+
     <div class="lender-listing">
       <h3>My ads</h3>
         <% @products.each do |product| %>
@@ -65,6 +66,7 @@
             </tr>
             <% if current_user %>
               <% if current_user.id === product.user_id %>
+                <%= button_to "edit", edit_product_path(product.id), :method=> :get %>
                 <%= button_to "delete", product_path(product.id), :method=> :delete %>
               <% end %>
             <% end %>
@@ -86,35 +88,33 @@
         <% end %>
       </div>
 
-
       <!-- GOOGLE MAP -->
-  <div class="row">
+      <div class="row">
 
-    <div id="map" style="width: 100%; height: 400px"></div>
+        <div id="map" style="width: 100%; height: 400px"></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script>
-        function initialize() {
-          var location = {lat: <%= @user.latitude %>, lng: <%= @user.longitude %>}
-          var map = new google.maps.Map(document.getElementById('map'), {
-            center: location,
-            zoom: 14
-          });
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script>
+            function initialize() {
+              var location = {lat: <%= @user.latitude %>, lng: <%= @user.longitude %>}
+              var map = new google.maps.Map(document.getElementById('map'), {
+                center: location,
+                zoom: 14
+              });
 
-          var marker = new google.maps.Marker({
-            position: location,
-            map: map
-          });
+              var marker = new google.maps.Marker({
+                position: location,
+                map: map
+              });
 
 
-          infoWindow.open(map, marker);
-        }
+              infoWindow.open(map, marker);
+            }
 
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
 
-  </div>
-  <hr/>
+      </div>
 
   </div>
 
