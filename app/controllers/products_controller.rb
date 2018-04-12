@@ -24,8 +24,27 @@ class ProductsController < ApplicationController
 
 	end
 
-	def destroy
+	def edit 
+		@product = Product.find params[:id]
+		
+	end
 
+	def update 
+		@product = Product.find params[:id]
+		# @product.update(name: params[:name], description: params[:description], category: params[:category], price: params[:price], image: params[:image])
+		@product.name = product_params[:name]
+		@product.description = product_params[:description]
+		@product.category_id = product_params[:category_id]
+		@product.price = product_params[:price]
+		@product.image = product_params[:image]
+		if @product.save 
+			redirect_to product_path(@product)	
+		end
+	end
+
+
+
+	def destroy
 		@product = Product.find params[:id]
 		@user = @product.user
 		@product.destroy

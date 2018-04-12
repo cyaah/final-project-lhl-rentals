@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   # PRODUCTS
-  resources :products, only: [:index, :show, :new, :create] do
+  resources :products, only: [:index, :show, :new, :create, :edit, :update] do
     resources :reviews
   end
 
