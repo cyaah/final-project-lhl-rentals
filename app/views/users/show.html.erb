@@ -51,46 +51,41 @@
   </div>
 
   <div class="col-md-9">
+
     <h2><%= @user.fullname%></h2>
-  </div>
-<article class="product">
-    <h3>My ads</h3>
-    <% @products.each do |product| %>
-    <div class="products">
-    <tr>
 
-      <td><h3> <%= product.name %>     </td>
-        <td><%= image_tag product.image.url(:medium) %></td>
-         <td><%= product.description %></td>
-
-    </tr>
-    <% if current_user %>
-      <% if current_user.id === product.user_id %>
-
-        <%= button_to "delete", product_path(product.id), :method=> :delete %>
+    <div class="lender-listing">
+      <h3>My ads</h3>
+        <% @products.each do |product| %>
+          <div class="products">
+            <tr>
+              <td><h3><%= product.name %></h3></td>
+              <td><%= image_tag product.image.url(:medium) %></td>
+              <td><%= product.description %></td>
+            </tr>
+            <% if current_user %>
+              <% if current_user.id === product.user_id %>
+                <%= button_to "delete", product_path(product.id), :method=> :delete %>
+              <% end %>
+            <% end %>
+          </div>
         <% end %>
-      <% end %>
-    <% end %>
-  </article>
+      </div>
 
-    </div>
-
-
-    <h3>Rented stuff</h3>
-    <p>Stuff you have rented out </p>
-    <% @booking.each do |booking| %>
-    <div class="products">
-      <tr>
-        <td><h3><%= booking.product.name %></h3></td>
-        <td> <%=image_tag booking.product.image.url(:medium) %></td>
-           <td><%= booking.product.description %></td>
-
-      </tr>
-          <% end %>
-    </div>
-
+      <div class="renter-listing">
+        <h3>Rented stuff</h3>
+        <p>Stuff you have rented out </p>
+        <% @booking.each do |booking| %>
+          <div class="products">
+            <tr>
+              <td><h3><%= booking.product.name %></h3></td>
+              <td> <%=image_tag booking.product.image.url(:medium) %></td>
+              <td><%= booking.product.description %></td>
+            </tr>
+          </div>
+        <% end %>
+      </div>
 
   </div>
-
 
 </div>
