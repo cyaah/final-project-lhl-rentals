@@ -20,21 +20,22 @@
           <dd><%= @product.description %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-
         </dl>
-    </div>
-
-        <div class='row'>
-          <dl class ='dl-horizontal'>
-
-          </dl>
-        </div>
-        <div class="col-md-4">
-          <%= render 'bookings/form' %>
       </div>
 
+    </div>
 
-      <%= render 'partials/review' %>
+    <div class='row'>
+      <div class="col-md-12">
+        <%= render 'partials/form' %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class="col-md-12">
+        <%= render 'partials/review' %>
+      </div>
+    </div>
 
 
   </article>
