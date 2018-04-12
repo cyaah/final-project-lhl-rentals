@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @booking = @user.bookings.includes(:product)
     @products = @user.products
- 
+
     if current_user.stripe_id.blank?
       @user = User.find(params[:id])
       @booking = @user.bookings
@@ -61,5 +61,38 @@ class UsersController < ApplicationController
         flash[:alert] = e.message
         redirect_to payment_method_path
       end
-  end
 
+      #REVIEWS
+
+      def create
+        @product = Product.find(params[:product_id])
+        @review = @product.reviews.new(review_params)
+        @review.user  = current_user
+
+        if @review.save
+          redirect_to product_path(@product)
+        else
+          redirect_to product_path(@product)
+        end
+      end
+
+      def destroy
+        @product = Product.find(params[:product_id])
+        @review = @product.reviews.find(params[:id])
+        @review.destroy
+        redirect_to product_path(@product)
+      end
+
+      private
+
+      def review_params
+        params.require(:review).permit(
+          :product_id,
+          :description,
+          :rating
+        )
+      end
+
+
+
+  end

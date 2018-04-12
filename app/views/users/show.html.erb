@@ -44,7 +44,7 @@
           <%= link_to "Add Payment Method", payment_method_path, class: "badge badge-info" %>
         <% else @card %>
           <%= link_to "Edit Payment Method", payment_method_path, class: "badge badge-info" %>
-        <% end %>  
+        <% end %>
       </div>
 
     </div>
@@ -83,14 +83,14 @@
       <tr>
         <td><h3><%= booking.product.name %></h3></td>
         <td> <%=image_tag booking.product.image.url(:medium) %></td>
-           <td><%= booking.product.description %></td>   
+           <td><%= booking.product.description %></td>
 
       </tr>
           <% end %>
     </div>
 
 
-  </div> 
+  </div>
 
 
 </div>
