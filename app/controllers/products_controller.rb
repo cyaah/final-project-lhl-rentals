@@ -51,6 +51,10 @@ class ProductsController < ApplicationController
 		redirect_to @user, notice: "Product deleted"	
 	end
 
+	def search 
+		
+	end
+
 	 def product_params
     params.require(:product).permit(
       :name,
