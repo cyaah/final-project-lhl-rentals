@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-sm-8 <%= current_user.present? == true ? "row" : "hidden" %> ">
     <%= form_for ([@product, @product.reviews.build]) do |f| %>
@@ -7,32 +8,33 @@
     <% end %>
   </div>
 </div>
-
+<div class="row">
   <% @product.reviews.reverse.each do |review| %>
     <% if review.description.present? %>
-    <div class="col-sm-4 reviews">
-      <dl class="dl-horizontal">
-        <dt>Description</dt>
-        <dd><%= review.description %></dd>
-        <dt>Rating </dt>
-        <dd>
-          <% review.rating.to_i.times do  %>
-          <span class="glyphicon glyphicon-star">  </span>
+      <div class="col-md-6 reviews">
+        <dl class="dl-horizontal">
+          <dt>Description</dt>
+          <dd><%= review.description %></dd>
+          <dt>Rating </dt>
+          <dd>
+            <% review.rating.to_i.times do  %>
+            <span class="glyphicon glyphicon-star">  </span>
+            <% end %>
+            <% review.blank_stars.to_i.times do  %>
+             <span class="glyphicon glyphicon-star-empty">  </span>
+            <% end %>
+          </dd>
+          <dt>Date</dt>
+          <dd><%= review.created_at.strftime("%b %d, %Y") %></dd>
+          <dt>
+          <% if current_user.present? && review.user_id == current_user.id %>
+            <%= form_for [@product, review], method: :delete  do |f| %>
+            <%= f.button "Delete", class: "btn btn-primary"  %>
+            <% end %>
           <% end %>
-          <% review.blank_stars.to_i.times do  %>
-           <span class="glyphicon glyphicon-star-empty">  </span>
-          <% end %>
-        </dd>
-        <dt>Date</dt>
-        <dd><%= review.created_at.strftime("%b %d, %Y") %></dd>
-        <dt>
-        <% if current_user.present? && review.user_id == current_user.id %>
-          <%= form_for [@product, review], method: :delete  do |f| %>
-          <%= f.button "Delete"%>
-          <% end %>
-        <% end %>
-        </dt>
-      </dl>
-    </div>
+          </dt>
+        </dl>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

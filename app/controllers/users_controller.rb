@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @booking = @user.bookings.includes(:product)
     @products = @user.products
- 
+
+
     if current_user.stripe_id.blank?
       @user = User.find(params[:id])
       @booking = @user.bookings
@@ -61,5 +62,6 @@ class UsersController < ApplicationController
         flash[:alert] = e.message
         redirect_to payment_method_path
       end
-  end
 
+
+  end

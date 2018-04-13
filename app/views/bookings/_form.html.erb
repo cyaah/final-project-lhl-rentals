@@ -1,9 +1,15 @@
 <%= form_for([@product, @product.bookings.new]) do |f| %>
-<%= f.text_field :from_date %>
-<%= f.text_field :to_date %>
-
-<br/>
-<%= f.submit "Book Now", class: "btn btn-normal btn-block"%>
+<div class="col-md-4">
+  <dl>
+    <dt>Start date</dt>
+    <dd><%= f.text_field :from_date %></dd>
+    <dt>End date </dt>
+    <dd><%= f.text_field :to_date %> </dd>
+  <dt>
+</div>
+<div class="col-md-8">
+<%= f.submit "Book Now", class: "btn btn-primary"%>
+</div>
 <% end %>
 
 <script>

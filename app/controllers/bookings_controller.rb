@@ -13,10 +13,10 @@ class BookingsController < ApplicationController
     @booking.product = product
     @booking.price = product.price
     @booking.total = product.price * days
-    @booking.save
+    # @booking.save
 
-    flash[:notice] = "Booked successfully!"
-    redirect_to product
+    # flash[:notice] = "Booked successfully!"
+    redirect_to booking_confirmation
 
   end
 
