@@ -39,12 +39,10 @@ class UsersController < ApplicationController
       current_user.stripe_id = customer.id
       current_user.save
 
-      # Add Credit Card to Stripe
-      # customer.sources.create(source: params[:stripeToken])
+
     else
       customer = Stripe::Customer.retrieve(current_user.stripe_id)
-      # customer.source = params[:stripeToken]
-      # customer.save
+
     end
 
       month, year = params[:expiry].split(/ \/ /)
@@ -57,7 +55,7 @@ class UsersController < ApplicationController
       customer.sources.create(source: new_token.id)
 
       flash[:notice] = "Your card is saved."
-      redirect_to payment_method_path
+      redirect_to :action=>"show",:controller=>"users", id: current_user.id
       rescue Stripe::CardError => e
         flash[:alert] = e.message
         redirect_to payment_method_path
