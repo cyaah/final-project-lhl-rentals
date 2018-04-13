@@ -1,155 +1,159 @@
 <div class="container-fluid ">
-<div class="row">
-  <div class="col-md-2">
-    <div class="center">
-      <%= image_tag image_url('avatar4.png'), class: "img-thumbnail" %>
-    </div>
-    <div class="panel panel-default">
-
-      <div class="panel-heading">Profile Details</div>
-
-      <div class="panel-body">
-
-        <ul class="sidebar-list list-unstyled">
-          <li>Email Address
-            <ul>
-              <li><small class="text-muted"><%= @user.email %></small></li>
-            </ul>
-          </li>
-          <li>Phone Number
-            <ul>
-              <li><small class="text-muted"><%= @user.phone %></small></li>
-            </ul>
-          </li>
-          <li>Address
-            <ul>
-              <li><small class="text-muted"><%= @user.address %></small></li>
-            </ul>
-          </li>
-          <% if @card.blank? %>
-              <li></li>
-          <% else @card %>
-          <li>Credit Card
-            <ul>
-              <li><small class="text-muted">XXXX XXXX XXXX <%= @card.last4 %></small></li>
-            </ul>
-          </li>
-          <% end %>
-        </ul>
-
+  <div class="row">
+    <div class="col-md-2">
+      <div class="center">
+        <%= image_tag image_url('avatar4.png'), class: "img-thumbnail" %>
       </div>
+      <div class="panel panel-default">
 
-      <div class="panel-heading">
-        <%= link_to "Edit Profile", edit_user_registration_path, class: "badge badge-info" %>
-        <% if @card.blank? %>
-          <%= link_to "Add Payment Method", payment_method_path, class: "badge badge-info" %>
-        <% else @card %>
-          <!-- <%= link_to "Edit Payment Method", payment_method_path, class: "badge badge-info" %> -->
-        <% end %>
-      </div>
+        <div class="panel-heading">Profile Details</div>
 
-      <!-- GOOGLE MAP -->
+        <div class="panel-body">
 
-      <div id="map" style="width: 100%; height: 300px"></div>
-
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-        <script>
-          function initialize() {
-            var location = {lat: <%= @user.latitude %>, lng: <%= @user.longitude %>}
-            var map = new google.maps.Map(document.getElementById('map'), {
-              center: location,
-              zoom: 10
-            });
-
-            var marker = new google.maps.Marker({
-              position: location,
-              map: map
-            });
-
-
-            infoWindow.open(map, marker);
-          }
-
-          google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
-
-    </div>
-
-
-  </div>
-
-  <div class="col-md-10">
-
-    <div class="panel panel-default">
-
-      <div class="panel-heading">
-        <h2><%= @user.fullname%></h2>
-      </div>
-
-    <div class="lender-listing">
-      <h3>My ads</h3>
-        <% @products.each do |product| %>
-          <div class="products">
-            <tr>
-              <td><h3><%= product.name %></h3></td>
-              <td><%= image_tag product.image.url(:medium) %></td>
-              <td><%= product.description %></td>
-            </tr>
-            <% if current_user %>
-              <% if current_user.id === product.user_id %>
-                <td><%= button_to "edit", edit_product_path(product.id), :method=> :get, class: "btn btn-primary" %> </td>
-                <td><%= button_to "delete", product_path(product.id), :method=> :delete, class: "btn btn-primary" %> </td>
-              <% end %>
+          <ul class="sidebar-list list-unstyled">
+            <li>Email Address
+              <ul>
+                <li><small class="text-muted"><%= @user.email %></small></li>
+              </ul>
+            </li>
+            <li>Phone Number
+              <ul>
+                <li><small class="text-muted"><%= @user.phone %></small></li>
+              </ul>
+            </li>
+            <li>Address
+              <ul>
+                <li><small class="text-muted"><%= @user.address %></small></li>
+              </ul>
+            </li>
+            <% if @card.blank? %>
+                <li></li>
+            <% else @card %>
+            <li>Credit Card
+              <ul>
+                <li><small class="text-muted">XXXX XXXX XXXX <%= @card.last4 %></small></li>
+              </ul>
+            </li>
             <% end %>
-          </div>
-        <% end %>
+          </ul>
+
+        </div>
+
+        <div class="panel-heading">
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "badge badge-info" %>
+          <% if @card.blank? %>
+            <%= link_to "Add Payment Method", payment_method_path, class: "badge badge-info" %>
+          <% else @card %>
+            <!-- <%= link_to "Edit Payment Method", payment_method_path, class: "badge badge-info" %> -->
+          <% end %>
+        </div>
+
+        <!-- GOOGLE MAP -->
+
+        <div id="map" style="width: 100%; height: 300px"></div>
+
+          <script src="https://maps.googleapis.com/maps/api/js"></script>
+          <script>
+            function initialize() {
+              var location = {lat: <%= @user.latitude %>, lng: <%= @user.longitude %>}
+              var map = new google.maps.Map(document.getElementById('map'), {
+                center: location,
+                zoom: 10
+              });
+
+              var marker = new google.maps.Marker({
+                position: location,
+                map: map
+              });
+
+
+              infoWindow.open(map, marker);
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+          </script>
       </div>
 
-      <div class="renter-listing">
-        <h3>Rented stuff</h3>
-        <p>Stuff you have rented out </p>
-        <% @booking.each do |booking| %>
-          <div class="products">
-            <tr>
-              <td><h3><%= booking.product.name %></h3></td>
-              <td> <%=image_tag booking.product.image.url(:medium) %></td>
-              <td><%= booking.product.description %></td>
-            </tr>
+
+    </div>
+    <div class="col-md-10">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+
+            <div class="panel-heading">
+              <h2>Listings</h2>
+            </div>
+
+            <div class="lender-listing">
+
+                <% @products.each do |product| %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="panel panel-default  panel--styled">
+                      <div class="panel-body">
+                        <div class="col-md-4">
+                          <%= image_tag product.image.url(:medium), class: "card-img-left" %>
+                        </div>
+                        <div class="col-md-6">
+                          <h2 class="card-text"><%= product.name %></h2>
+                          <p class="card-text"><%= product.description %></p>
+                          <p class="card-text">Price per day Cad$ <%= product.price %>.00</p>
+                        </div>
+                        <div class="col-md-2">
+                          <%= button_to " edit ", edit_product_path(product.id), :method=> :get, class: "btn btn-secondary btn-block " %>
+                          <%= button_to "delete", product_path(product.id), :method=> :delete, class: "btn btn-secondary btn-block " %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
           </div>
-        <% end %>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+
+              <div class="panel-heading">
+                <h2>Renting</h2>
+              </div>
+                 <div class="renter-listing">
+
+                    <% @booking.each do |booking| %>
+                    	<div class="row">
+                    		<div class="col-md-12">
+                    			<div class="panel panel-default  panel--styled">
+                    				<div class="panel-body">
+                  						<div class="col-md-4">
+                                <%=image_tag booking.product.image.url(:medium), class: "card-img-left" %>
+                            	</div>
+                              <div class="col-md-6">
+                                <h2 class="card-text"><%= booking.product.name %></h2>
+                                <p class="card-text"><%= booking.product.description %></p>
+                                <p class="card-text">Price per day Cad$ <%= booking.total %>.00</p>
+                                <p class="card-text">Booking start date <%= booking.from_date %></p>
+                                <p class="card-text">Booking end date <%= booking.to_date %></p>
+                              </div>
+                              <div class="col-md-2">
+                                <%= button_to " edit ", root_path, class: "btn btn-secondary btn-block" %>
+                                <%= button_to "Cancel", root_path, class: "btn btn-secondary btn-block" %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-
   </div>
-
-
-  <% @products.each do |product| %>
-  	<div class="row">
-  		<div class="col-md-8">
-  			<div class="panel panel-default  panel--styled">
-  				<div class="panel-body">
-							<div class="col-md-2">
-                <%= image_tag product.image.url(:medium), class: "card-img-right" %>
-            	</div>
-                <div class="col-md-10">
-                  <p class="card-text "><%= product.description %></p>
-                </div>
-  						</div>
-              <div class="row">
-                <div class="col-md-2">
-                <div class="row">
-                <div class="col-md-6">
-                  <%= button_to " edit ", edit_product_path(product.id), :method=> :get, class: "btn btn-secondary" %>
-                </div>
-                <div class"col-md-6" >
-                  <%= button_to "delete", product_path(product.id), :method=> :delete, class: "btn btn-secondary" %>
-                </div>
-              </div>
-                </div>
-             </div>
-         </div>
-       </div>
-     </div>
-   </div>
-
- <% end %>
+</div>

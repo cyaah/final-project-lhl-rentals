@@ -1,43 +1,35 @@
-<section class="products-show">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
 
-  <header class="page-header">
-    <h1> <%= @product.name %></h1>
-  </header>
+        <div class="panel-heading">
+          <h2><%= @product.name %></h2>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default  panel--styled">
+              <div class="panel-body">
+                <div class="col-md-4">
+                  <%= image_tag @product.image.url(:medium), class: "card-img-left" %>
+                </div>
+                <div class="col-md-6">
+                  <p class="card-text"><%= @product.description %></p>
+                  <p class="card-text">Price per day Cad$ <%= @product.price %>.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%= render 'bookings/form' %>
+        </div>
 
-  <article class="product-detail">
-
-    <div class="row">
-
-      <div class="col-sm-4">
-        <%= image_tag @product.image.url(:large), class: 'main-img' %>
-      </div>
-
-      <div class="col-sm-8">
-        <dl class="dl-horizontal">
-          <dt>Name</dt>
-          <dd><%= @product.name %></dd>
-          <dt>Description</dt>
-          <dd><%= @product.description %></dd>
-          <dt>Price</dt>
-          <dd><%= @product.price %></dd>
-        </dl>
-      </div>
-
-    </div>
-
-    <div class='row'>
-      <div class="col-md-12">
-        <%= render 'bookings/form' %>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class='row'>
-      <div class="col-md-12">
-        <%= render 'partials/review' %>
-      </div>
-    </div>
-
-
-  </article>
-
-</section>
+<!-- <div class='row'>
+<div class="col-md-12">
+<%= render 'partials/review' %>
+</div>
+</div> -->
