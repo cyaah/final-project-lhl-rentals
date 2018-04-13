@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def payment
   end
 
+
   def payout
     if !current_user.merchant_id.blank?
       account = Stripe::Account.retrieve(current_user.merchant_id)
@@ -38,11 +39,8 @@ class UsersController < ApplicationController
       )
       current_user.stripe_id = customer.id
       current_user.save
-
-
     else
       customer = Stripe::Customer.retrieve(current_user.stripe_id)
-
     end
 
       month, year = params[:expiry].split(/ \/ /)
@@ -56,10 +54,10 @@ class UsersController < ApplicationController
 
       flash[:notice] = "Your card is saved."
       redirect_to :action=>"show",:controller=>"users", id: current_user.id
+
       rescue Stripe::CardError => e
         flash[:alert] = e.message
         redirect_to payment_method_path
       end
-
 
   end

@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   # STRIPE
   get '/payment_method' => "users#payment"
   post '/add_card' => "users#add_card"
-
+  post '/perform_stripe_charge' => "bookings#perform_stripe_charge"
 
 
 

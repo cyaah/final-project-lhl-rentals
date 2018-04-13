@@ -1,6 +1,6 @@
 <div class="container-fluid ">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="center">
         <%= image_tag image_url('avatar4.png'), class: "img-thumbnail" %>
       </div>
@@ -76,7 +76,7 @@
 
 
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
 
       <div class="row">
         <div class="col-md-12">
@@ -93,10 +93,10 @@
                   <div class="col-md-12">
                     <div class="panel panel-default  panel--styled">
                       <div class="panel-body">
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                           <%= image_tag product.image.url(:medium), class: "card-img-left" %>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <h2 class="card-text"><%= product.name %></h2>
                           <p class="card-text"><%= product.description %></p>
                           <p class="card-text">Price per day Cad$ <%= product.price %>.00</p>
@@ -129,10 +129,10 @@
                     		<div class="col-md-12">
                     			<div class="panel panel-default  panel--styled">
                     				<div class="panel-body">
-                  						<div class="col-md-4">
+                  						<div class="col-md-5">
                                 <%=image_tag booking.product.image.url(:medium), class: "card-img-left" %>
                             	</div>
-                              <div class="col-md-6">
+                              <div class="col-md-5">
                                 <h2 class="card-text"><%= booking.product.name %></h2>
                                 <p class="card-text"><%= booking.product.description %></p>
                                 <p class="card-text">Price per day Cad$ <%= booking.total %>.00</p>
@@ -140,9 +140,21 @@
                                 <p class="card-text">Booking end date <%= booking.to_date %></p>
                               </div>
                               <div class="col-md-2">
+
                                 <%= button_to " edit ", root_path, class: "btn btn-primary btn-block" %>
-                                <%= button_to "Cancel", root_path, class: "btn btn-danger btn-block" %>
-                                <%= button_to "Pay", root_path, class: "btn btn-success btn-block" %>
+                                <%= button_to "Cancel",root_path, class: "btn btn-danger btn-block" %>
+                                <%= form_tag perform_stripe_charge_path do %>
+                                  <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                    data-amount="1111111"
+                                    data-name="Jungle"
+                                    data-description="Khurram Virani's Jungle Order"
+                                    data-locale="auto"
+                                    data-email="kvirani@gmail.com"
+                                    data-currency="cad">
+                                  </script>
+                                <% end %>
                               </div>
                             </div>
                           </div>
