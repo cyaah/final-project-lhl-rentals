@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   # TO OVERIDE UPDATE PROFILE WITHOUT HAVE TO INPUT CURRENT PASSWORD
   controllers: {registrations: 'registrations'}
 
+
+
   #BOOKING
   resources :products, except: [:edit] do
     member do
