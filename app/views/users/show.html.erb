@@ -140,20 +140,21 @@
                                 <p class="card-text">Booking end date <%= booking.to_date %></p>
                               </div>
                               <div class="col-md-2">
-
                                 <%= button_to " edit ", root_path, class: "btn btn-primary btn-block" %>
                                 <%= button_to "Cancel",root_path, class: "btn btn-danger btn-block" %>
+                                <% if @card.blank? %>
+                                <%= button_to "Pay on Pickup",root_path, class: "btn btn-success btn-block" %>
+                                <% else @card %>
                                 <%= form_tag perform_stripe_charge_path do %>
                                   <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                    data-amount="1111111"
-                                    data-name="Jungle"
-                                    data-description="Khurram Virani's Jungle Order"
+                                    data-amount="<%= booking.total * 100 %>"
+                                    data-description="Thanks for renting <%= booking.product.name %>"
                                     data-locale="auto"
-                                    data-email="kvirani@gmail.com"
                                     data-currency="cad">
                                   </script>
+                                  <% end %>
                                 <% end %>
                               </div>
                             </div>

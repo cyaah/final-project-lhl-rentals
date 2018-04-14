@@ -25,8 +25,8 @@ class BookingsController < ApplicationController
   def perform_stripe_charge
     Stripe::Charge.create(
       source:      params[:stripeToken],
-      amount:      10000, # in cents
-      description: "teste ",
+      amount:      240 * 100, # in cents
+      description: "Thanks for renting with us",
       currency:    'cad'
     )
 
