@@ -1,19 +1,122 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.pages  {
-  background: image-url('index_bg.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+html {
+  height: 100%;
+  overflow: hidden;
 }
 
-.slogan {
-  background-color: white;
-  opacity: .6;
-  margin: 20% auto;
-  width: 60%;
-  border-radius: 20px;
+body {
+  margin:0;
+  padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Nunito;
+}
+
+h1 {
+   font-size: 250%;
+   text-align: center;
+}
+
+p {
+  font-size: 140%;
+  line-height: 150%;
+  color: #333;
+}
+
+.slide {
+  position: relative;
+  padding: 25vh 10%;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+	transform-style: inherit;
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+}
+
+.title {
+  width: 50%;
+  padding: 5%;
+  border-radius: 50px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.title:hover {
+  background: rgba(240,230,220, .9);
+}
+
+.slide:nth-child(2n) .title {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slide:nth-child(2n+1) .title {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.slide, .slide:before {
+  background: 50% 50% / cover;
+}
+
+.header {
+  text-align: center;
+  font-size: 200%;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+}
+
+#title {
+  background: image-url('index_bg.jpg');
+  z-index:2;
+}
+
+
+#title h1 {
+ margin-top: 10%;
+ transform: translateZ(.25px) scale(1.25);
+ transform-origin: 50% 100%;
+}
+
+#slide1:before {
+  background-image: url('tools.jpeg');
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide2 {
+  background-image: url('skies.jpg');
+  z-index:2
+
+}
+
+#slide3:before {
+  background-image: url('eletronic.jpg');
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide4 {
+  background: #222;
+  transform: translateZ(.25) scale(.75);
+  z-index:2;
+
+}
+
+.main-search {
+  float: none!important;
+
 }

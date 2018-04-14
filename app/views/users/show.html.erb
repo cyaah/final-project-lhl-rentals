@@ -40,11 +40,20 @@
         </div>
 
         <div class="panel-heading">
-          <%= link_to "Edit Profile", edit_user_registration_path, class: "badge badge-info" %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "badge badge-pill badge-info" %>
           <% if @card.blank? %>
-            <%= link_to "Add Payment Method", payment_method_path, class: "badge badge-info" %>
+            <%= link_to "Add Payment Method", payment_method_path, class: "badge badge-pill badge-info" %>
           <% else @card %>
             <!-- <%= link_to "Edit Payment Method", payment_method_path, class: "badge badge-info" %> -->
+          <% end %>
+          <% if @product.blank? %>
+            <%= link_to "Add listing", new_product_path, class: "badge badge-pill badge-info" %>
+          <% else %>
+            <button class="badge badge-pill badge-danger" id="lender">My listing</button>
+          <% end %>
+          <% if @booking.blank? %>
+          <% else %>
+            <button  class="badge badge-pill badge-success"id="renter">Rented</button>
           <% end %>
         </div>
 
@@ -78,7 +87,7 @@
     </div>
     <div class="col-md-9">
 
-      <div class="row">
+      <div class="row" id="lender-row">
         <div class="col-md-12">
           <div class="panel panel-default">
 
@@ -115,7 +124,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="renter-row">
           <div class="col-md-12">
             <div class="panel panel-default">
 
@@ -171,3 +180,16 @@
     </div>
   </div>
 </div>
+
+</script>
+<script>
+$(document).ready(function(){
+    $("#lender").click(function(){
+        $("#lender-row").toggle(1000);
+
+    });
+    $("#renter").click(function(){
+      $("#renter-row").toggle(1000);
+    });
+});
+</script>

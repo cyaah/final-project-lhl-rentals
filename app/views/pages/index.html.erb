@@ -1,8 +1,63 @@
-<body class="pages">
-  <div class="centering text-center slogan">
-    <div class="row align-items-center">
-      <h1>Rentals</h1>
-      <h3>Save or Make some money renting your items</h3>
+<div id="title" class="slide header">
+    <h1>RENTALS</h1>
+    <div>
+      <%= form_tag(search_page_path, :method => "get",
+      class: 'main-search') do %>
+      <div class='input-group'>
+        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+        <div class="input-group-btn">
+          <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+        </div>
+      </div>
+      <% end %>
     </div>
-  </div>
-</body>
+</div>
+
+
+<div id="slide1" class="slide">
+  <a href="/categories/1">
+    <div id="tools" class="title">
+      <h1>Looking for tools??</h1>
+    </div>
+  </a>
+</div>
+
+
+<div id="slide2" class="slide">
+  <a href="/categories/2">
+    <div  id="sport" class="title">
+      <h1>Or sport equipments??</h1>
+    </div>
+  </a>
+</div>
+
+<div id="slide3" class="slide">
+  <a href="/categories/3">
+    <div  id="eletronic" class="title">
+      <h1>Maybe eletronics??</h1>
+    </div>
+  </a>
+</div>
+
+<div id="slide4" class="slide slide">
+  <a href="/categories/">
+    <div class="title">
+      <h1>Nothing yet??</br>Try all categories</h1>
+    </div>
+  </a>
+</div>
+
+<script>
+$(document).ready(function () {
+
+    // Open in new window
+    $("#title").click(function(){
+       window.location = $(this).find("a:first").attr("href");
+       return false;
+   });
+
+
+
+});
+
+</script>
