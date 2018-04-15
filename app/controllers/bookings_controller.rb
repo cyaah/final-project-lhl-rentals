@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = "Booked successfully!"
-      redirect_to ('/')
+      redirect_to :action=>"show",:controller=>"users", id: current_user.id
     end
 
   end

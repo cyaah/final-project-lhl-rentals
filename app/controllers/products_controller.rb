@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 		@product.user = current_user
 
 		if @product.save
-			redirect_to ('/')
+			redirect_to :action=>"show",:controller=>"users", id: current_user.id
 		end
 
 	end
@@ -50,13 +50,13 @@ class ProductsController < ApplicationController
 		redirect_to @user, notice: "Product deleted"
 	end
 
-	def search 
+	def search
 		if params[:search].blank?
 			redirect_to(root_path, alert: "Empty field!") and return
 		else
 			@parameter = params[:search].downcase
 			@results = Product.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
-		end					
+		end
 	end
 
 	 def product_params
