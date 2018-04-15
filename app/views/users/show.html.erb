@@ -154,7 +154,7 @@
                                 <% if @card.blank? %>
                                 <%= button_to "Pay on Pickup",root_path, class: "btn btn-success btn-block" %>
                                 <% else @card %>
-                                <%= form_tag perform_stripe_charge_path do %>
+                                <%= form_tag perform_stripe_charge_path, class: "stripe" do  %>
                                   <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"

@@ -1,4 +1,5 @@
 <div id="title" class="slide header">
+  <div class"main-page">
     <h1>RENTALS</h1>
     <div>
       <%= form_tag(search_page_path, :method => "get",
@@ -11,17 +12,16 @@
       </div>
       <% end %>
     </div>
+  </div>
 </div>
-
 
 <div id="slide1" class="slide">
   <a href="/categories/1">
     <div id="tools" class="title">
-      <h1>Looking for tools??</h1>
+      <h1>Looking for eletronics??</h1>
     </div>
   </a>
 </div>
-
 
 <div id="slide2" class="slide">
   <a href="/categories/2">
@@ -34,30 +34,34 @@
 <div id="slide3" class="slide">
   <a href="/categories/3">
     <div  id="eletronic" class="title">
-      <h1>Maybe eletronics??</h1>
+      <h1>Maybe some tools??</h1>
     </div>
   </a>
 </div>
 
-<div id="slide4" class="slide slide">
+<div id="slide4" class="slide">
   <a href="/categories/">
     <div class="title">
       <h1>Nothing yet??</br>Try all categories</h1>
     </div>
   </a>
+  <div class="social-media">
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-google"></a>
+    <a href="#" class="fa fa-linkedin"></a>
+    <a href="#" class="fa fa-youtube"></a>
+    <a href="#" class="fa fa-instagram"></a>
+    <a href="#" class="fa fa-pinterest"></a>  
+  </div>
 </div>
 
 <script>
-$(document).ready(function () {
-
-    // Open in new window
-    $("#title").click(function(){
-       window.location = $(this).find("a:first").attr("href");
-       return false;
-   });
-
-
-
-});
-
+  $(document).ready(function () {
+      // Open in new window
+      $("#title").click(function(){
+         window.location = $(this).find("a:first").attr("href");
+         return false;
+     });
+  });
 </script>

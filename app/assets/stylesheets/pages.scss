@@ -1,5 +1,6 @@
 
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 html {
   height: 100%;
@@ -14,7 +15,7 @@ body {
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  font-family: Nunito;
+
 }
 
 h1 {
@@ -28,6 +29,10 @@ p {
   color: #333;
 }
 
+.main-page {
+  background-color: rgba(240,230,220, .7);
+}
+
 .slide {
   position: relative;
   padding: 25vh 10%;
@@ -36,6 +41,7 @@ p {
   box-sizing: border-box;
   box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
 	transform-style: inherit;
+  font-family:'Black Han Sans', sans-serif;
 }
 
 .slide:before {
@@ -46,6 +52,7 @@ p {
   left: 0;
   right: 0;
   box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+  pointer-events: none;
 }
 
 .title {
@@ -74,18 +81,23 @@ p {
   background: 50% 50% / cover;
 }
 
+.slide > a {
+  text-decoration: none;
+  color: #222;
+}
+
 .header {
   text-align: center;
   font-size: 200%;
   color: #fff;
   text-shadow: 0 2px 2px #000;
+  background-color: rgba(240,230,220, .7);
 }
 
 #title {
   background: image-url('index_bg.jpg');
   z-index:2;
 }
-
 
 #title h1 {
  margin-top: 10%;
@@ -94,7 +106,7 @@ p {
 }
 
 #slide1:before {
-  background-image: url('tools.jpeg');
+  background-image: url('eletronic.jpg');
   transform: translateZ(-1px) scale(2);
 }
 
@@ -105,13 +117,66 @@ p {
 }
 
 #slide3:before {
-  background-image: url('eletronic.jpg');
+  background-image: url('tools.jpeg');
   transform: translateZ(-1px) scale(2);
 }
 
 #slide4 {
-  background: #222;
+  background-image: url('all_cat.jpeg');
   transform: translateZ(.25) scale(.75);
   z-index:2;
+}
 
+// SOCIAL media
+
+.fa {
+  padding: 20px;
+  font-size: 50px;
+  width: 100px;
+  text-align: center;
+  margin: 0px 2px;
+  margin-top: 20%;
+}
+
+.fa > a {
+  text-decoration: none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
 }

@@ -1,15 +1,21 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
 
+
 // INDEX PAGE
 @import "pages.scss";
+@import "navbar.scss";
+
+// App
+@import "products";
+
 
 
 .container {
   width: 60%;
 }
-
 
 //STRIPE FORM
 
@@ -46,4 +52,13 @@
 
 .main-search {
   float: none!important;
+}
+
+#title > input#search {
+  height: 50px;
+
+}
+
+.col-md-3 > .sidebar-list {
+    text-align: center;
 }
