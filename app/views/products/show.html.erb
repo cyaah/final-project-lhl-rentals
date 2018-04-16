@@ -1,4 +1,3 @@
-<div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -15,21 +14,21 @@
                 </div>
                 <div class="col-md-6">
                   <p class="card-text"><%= @product.description %></p>
-                  <p class="card-text">Price per day Cad$ <%= @product.price %>.00</p>
+                  <p class="card-text">Cad$ <strong><%= @product.price %>.00</strong></p>
                 </div>
               </div>
             </div>
           </div>
-          <%= render 'bookings/form' %>
+          <div class="row">
+            <%= render 'bookings/form' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <%= render 'partials/review' %>
+          </div>
         </div>
 
       </div>
     </div>
   </div>
-</div>
-
-<!-- <div class='row'>
-<div class="col-md-12">
-<%= render 'partials/review' %>
-</div>
-</div> -->
