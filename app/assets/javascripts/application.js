@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
-//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui/datepicker
+//= require bootstrap-sprockets
 //= require toastr
 //= require turbolinks
 //= require card

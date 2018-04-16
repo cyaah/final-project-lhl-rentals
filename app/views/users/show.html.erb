@@ -173,6 +173,7 @@ $(document).ready(function(){
 </script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script>
+
   function initialize() {
     var location = {lat: <%= @user.latitude %>, lng: <%= @user.longitude %>}
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -189,5 +190,5 @@ $(document).ready(function(){
     infoWindow.open(map, marker);
   }
 
-  google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(window, 'read', initialize);
 </script>
