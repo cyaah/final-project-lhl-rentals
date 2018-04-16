@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update] do
     resources :reviews
   end
-get '/search' => 'products#search', :as => 'search_page'
+  get '/search' => 'products#search', :as => 'search_page'
   # CATEGORIES
   resources :categories, only: [:index, :show]
 
