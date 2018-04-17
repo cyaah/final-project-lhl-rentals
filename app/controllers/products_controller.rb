@@ -7,10 +7,15 @@ class ProductsController < ApplicationController
 
 	def show
 		 @product = Product.find params[:id]
-     user_listing_id = @product.user_id
-     @user = User.find( user_listing_id)
-		 puts @product.inspect
-
+     if @product.user_id.blank?
+       user_listing_id = 1
+       @user = User.find( user_listing_id)
+  		 puts @product.inspect
+     else
+       user_listing_id = @product.user_id
+       @user = User.find( user_listing_id)
+  		 puts @product.inspect
+     end
 	end
 
 	def new
