@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
 
+
+  before_action :require_permission
+
+  def require_permission
+    if current_user != User.find(params[:id])
+      redirect_to root_path
+    end
+  end
+
   def show
 
     @user = User.find(params[:id])
