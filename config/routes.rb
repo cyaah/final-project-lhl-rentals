@@ -28,9 +28,10 @@ Rails.application.routes.draw do
       get 'pricing'
       get 'description'
     end
-    resources :bookings, only: [:create, :destroy]
+    resources :bookings, only: [:create,]
   end
 
+  delete '/booking/:booking_id' => "bookings#destroy"
 
   # STRIPE
   get '/payment_method' => "users#payment"

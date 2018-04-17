@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-
+  protect_from_forgery prepend:
+  true
   def create
     product = Product.find(params[:product_id])
 
@@ -35,10 +36,11 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-		booking = Booking.find(params[:product_id])
-    user = product.user
-		booking.destroy
-		redirect_to user, notice: "Booking has been canceled"
+    
+		@booking = Booking.find params [:id]
+    @user = @booking.user
+		@booking.destroy
+		redirect_to @user, notice: "Booking has been canceled"
 	end
 
   private

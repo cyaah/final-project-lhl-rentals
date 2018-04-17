@@ -1,8 +1,28 @@
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+  function initialize() {
+    var location = {lat: <%= @user.latitude %>, lng: <%= @user.longitude %>}
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: location,
+      zoom: 10
+    });
+
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+
+    infoWindow.open(map, marker);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 <div class="container-fluid ">
   <div class="row">
     <div class="col-md-3">
       <div class="center">
-        <%= image_tag image_url('avatar4.png'), class: "img-thumbnail" %>
+        <%= image_tag image_url("avatar#{current_user.id}.png"), class: "img-thumbnail" %>
       </div>
       <div class="panel panel-default">
 
@@ -58,7 +78,7 @@
         </div>
 
         <!-- GOOGLE MAP -->
-        <div id="map" application="data-turbolinks-track:true" style="width: 100%; height: 300px"></div>
+        <div id="map" style="width: 100%; height: 300px"></div>
 
       </div>
     </div>
@@ -128,7 +148,7 @@
                               </div>
                               <div class="col-md-2">
                                 <%= button_to " edit ", root_path, class: "btn btn-primary btn-block" %>
-                                <%= button_to "Cancel",root_path, class: "btn btn-danger btn-block" %>
+                                  <%= button_to "cancel", booking_path(booking_id), :method=> :delete, class: "btn btn-danger btn-block " %>
                                 <% if @card.blank? %>
                                 <%= button_to "Pay on Pickup",root_path, class: "btn btn-success btn-block" %>
                                 <% else @card %>
@@ -159,7 +179,6 @@
   </div>
 </div>
 
-</script>
 <script>
 $(document).ready(function(){
     $("#lender").click(function(){
@@ -170,24 +189,4 @@ $(document).ready(function(){
       $("#renter-row").toggle(1000);
     });
 });
-</script>
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script>
-  function initialize() {
-    var location = {lat: <%= @user.latitude %>, lng: <%= @user.longitude %>}
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: location,
-      zoom: 10
-    });
-
-    var marker = new google.maps.Marker({
-      position: location,
-      map: map
-    });
-
-
-    infoWindow.open(map, marker);
-  }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
 </script>

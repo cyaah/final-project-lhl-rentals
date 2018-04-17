@@ -3,6 +3,8 @@
 @import "bootstrap";
 @import "toastr";
 
+//FONTS
+@import url('https://fonts.googleapis.com/css?family=Cabin');
 
 // INDEX PAGE
 @import "pages.scss";
@@ -61,4 +63,10 @@
 
 .col-md-3 > .sidebar-list {
     text-align: center;
+}
+
+
+h1{
+  font-family: 'Cabin', sans-serif;
+  font-style: 'bold';
 }
