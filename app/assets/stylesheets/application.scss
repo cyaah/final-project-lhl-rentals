@@ -54,6 +54,8 @@
 
 .main-search {
   float: none!important;
+  margin: 0 auto;
+  height: 18px;
 }
 
 #title > input#search {
@@ -70,3 +72,16 @@ h1{
   font-family: 'Cabin', sans-serif;
   font-style: 'bold';
 }
+
+#mainSearch {
+  height: 50px;
+  border-radius: 25px;
+}
+
+#mainButton{
+  height: 50px;
+  top: -1%;
+  border-radius: 1000px;
+}
+
+

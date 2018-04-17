@@ -2,7 +2,19 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="navbar-header">
       <%= link_to "Rentals",  root_path, class: "navbar-brand" %>
-      <ul class="nav navbar-nav navbar-right">
+
+    </div>
+    <%= form_tag(search_page_path, :method => "get",
+    class: 'navbar-form navbar-right') do %>
+    <div class='input-group'>
+      <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+      <div class="input-group-btn">
+        <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+      </div>
+    </div>
+    <% end %>
+  </div>
+   <ul class="nav navbar-nav navbar-right">
         <% if (!user_signed_in?) %>
             <li><%= link_to "Login", new_user_session_path %></li>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
@@ -17,18 +29,5 @@
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             </ul>
-          </li>
         <% end %>
-      </ul>
-    </div>
-    <%= form_tag(search_page_path, :method => "get",
-    class: 'navbar-form navbar-right') do %>
-    <div class='input-group'>
-      <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-      <div class="input-group-btn">
-        <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-      </div>
-    </div>
-    <% end %>
-  </div>
 </nav>

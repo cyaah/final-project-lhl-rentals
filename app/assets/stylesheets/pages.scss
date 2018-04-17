@@ -93,7 +93,8 @@ p {
 }
 
 #title {
-  background: image-url("index_bg.jpg");
+  background: image-url("Main.jpg");
+  background-position: top 1000px;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 2;

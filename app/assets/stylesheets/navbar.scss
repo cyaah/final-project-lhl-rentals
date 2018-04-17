@@ -1,13 +1,17 @@
 .navbar-default {
-  background-color: #FFFFFF;
+  background-color: #1B2C34;
+  border: none;
+  height:60px;
 }
 
 .navbar-default .navbar-brand {
-  color: #FF5A5F;
-  font-size: 2em;
-  font-weight: 400;
-  margin-left: 200px;
+  color: white;
+  font-size: 45px;
+  font-weight: 500px;
+  margin-left: 30px;
   margin-right: 100px;
+  font-family: 'Cabin', sans-serif;
+  font-style: 'bold';
 }
 
 .navbar-default .navbar-form {
@@ -16,4 +20,21 @@
 
 .navbar {
   margin-bottom: 0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    font-size: 25px;
+    font-family: 'Cabin', sans-serif;
+    font-style: 'bold';
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #F7CE3E;
+    top:-0.5px;
+}
+
+.main-search {
+	width: 70%;
 }

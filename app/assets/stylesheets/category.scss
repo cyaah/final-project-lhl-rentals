@@ -119,6 +119,31 @@ h1{
 
 h2{
   font-family: 'Cabin', sans-serif;
+}
 
+.panel-default > .panel-heading{
+  background-color:#f2f7f8
 
+}
+
+.panel-heading{
+  border-style: none;
+}
+
+.panel-footer{
+  border-style: none;
+}
+
+a { 
+  color: black;
+}
+
+.panel-body {
+    opacity: 0.8;
+    
+}
+
+.panel-body:hover {
+    opacity: 1.0;
+   
 }

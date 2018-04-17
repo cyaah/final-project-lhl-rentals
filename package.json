@@ -1,5 +1,7 @@
 {
   "name": "rentals",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "mdbootstrap": "^4.5.1"
+  }
 }
