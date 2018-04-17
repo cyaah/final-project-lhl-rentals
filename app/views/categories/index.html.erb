@@ -1,17 +1,21 @@
 <header class="page-header">
   <h1> All Categories</h1>
 </header>
-<%  @category.each do |category| %>
-<div class="cards">
-  <a class="card" href="/categories/<%=category.id%>">
-    <span class="card-header" style="background-image: url(http://placeimg.com/400/200/animals);">
-      <span class="card-title">
-        <h3><%= category.name %></h3>
-      </span>
-    </span>
-    <span class="card-summary">
-      A summary will also be present. Usually two to three brief sentences about the content on the detail page.
-    </span>
-  </a>
+<div class="row">
+  <div class="col-md-12">
+    <%  @category.each do |category| %>
+    <div class="cards col-md-4">
+      <a class="card" href="/categories/<%=category.id%>">
+        <span class="card-header" style="background-image: url("/asstes/cat2.jpg");">
+          <span class="card-title">
+
+          </span>
+        </span>
+        <span class="card-summary">
+          <h3><%= category.name %></h3>
+        </span>
+      </a>
+    </div>
+    <% end %>
+  </div>
 </div>
-<% end %>
