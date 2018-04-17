@@ -1,12 +1,14 @@
 class ProductsController < ApplicationController
 
+
   def index
 		# @product = Product.all
 	end
 
 	def show
 		 @product = Product.find params[:id]
-     @user = @product.user_id
+     user_listing_id = @product.user_id
+     @user = User.find( user_listing_id)
 		 puts @product.inspect
 
 	end
