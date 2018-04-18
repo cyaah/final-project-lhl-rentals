@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-
+  
   before_action :require_permission
 
   def require_permission
