@@ -3,6 +3,7 @@
 ### Main Contributors: [RENATO AMARAL](https://github.com/RenatoAmaral), [CALVIN YAH](https://github.com/cyaah)
 
 ## Overview
+Rentals is a web application that connects users who are looking to rent or lend out their unused items. This app consolidates everything that you could possible want to rent without going to individual stores, saving peoples time. Users can search based on the product they are looking for through our search feature or through a categories filter. Prosepective renters can connect with the lender through email or book with their credit card.
 
 ## Final Product
 
@@ -18,7 +19,6 @@
 ## Tech Stack
 
 * Ruby on Rails
-* Javascript
 * Google Maps / Google Places Web API
 * Stripe Payments / Stripe API on test mode
 * jQuery
