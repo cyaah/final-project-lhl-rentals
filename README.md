@@ -1,24 +1,29 @@
-# README
+# "RENTALS" - Final Project (Lighthouse Labs Web Development Bootcamp)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Main Contributors: [RENATO AMARAL](https://github.com/RenatoAmaral), [CALVIN YAH](https://github.com/cyaah)
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+## Final Product
 
-* System dependencies
+## Getting Started
 
-* Configuration
+1.  Fork this repository, then clone your fork of this repository.
+2.  Install dependencies using the `bundle install` command in the root.
+3.  Create database using the `rails db:migration`.
+4.  Update initial Google longitude & latitude using the `rails geocode:all CLASS=User`.
+5.  Start the web server using the `rails s` command.
+6.  Go to <http://localhost:3000/> in your browser.
 
-* Database creation
+## Tech Stack
 
-* Database initialization
+* Ruby on Rails
+* Javascript
+* Google Maps / Google Places Web API
+* Stripe Payments / Stripe API on test mode
+* jQuery
+* PostgreSQL
 
-* How to run the test suite
+## Contact the Contributors
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Questions? Comments? Want to contribute to this? Feel free to contact any of the contributors of this repo.
