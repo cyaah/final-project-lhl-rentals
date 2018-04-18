@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Black+Han+Sans");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Jua");
 
 html {
   height: 100%;
@@ -16,11 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
-  font-size: 250%;
-  text-align: center;
-}
-
 p {
   font-size: 140%;
   line-height: 150%;
@@ -30,6 +26,10 @@ p {
 
 .main-page {
   background-color: rgba(240, 230, 220, 0.7);
+  h1 {
+    font-size: 350%;
+    text-align: center;
+  }
 }
 
 .slide {
@@ -40,7 +40,7 @@ p {
   box-sizing: border-box;
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.7);
   transform-style: inherit;
-  font-family: "Black Han Sans", sans-serif;
+  // font-family: "Black Han Sans", sans-serif;
 }
 
 .slide:before {
@@ -58,12 +58,12 @@ p {
   width: 50%;
   padding: 5%;
   border-radius: 50px;
-  background: rgba(240, 230, 220, 0.7);
+  background-color: rgba(27, 44, 52, 0.7);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
 .title:hover {
-  background: rgba(240, 230, 220, 0.9);
+  background-color: rgba(27, 44, 52, 0.9);
 }
 
 .slide:nth-child(2n) .title {
@@ -86,6 +86,10 @@ p {
   color: #222;
 }
 
+.slide h1 {
+  text-align: center;
+  color: rgba(247, 206, 67, 1);
+}
 .header {
   text-align: center;
   font-size: 200%;
