@@ -15,9 +15,7 @@
 .card {
   position: relative;
   margin-bottom: 20px;
-  padding-bottom: 30px;
-  background: #fefff9;
-  color: #363636;
+  color: #fefff9;
   text-decoration: none;
   -moz-box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
@@ -32,7 +30,7 @@
 }
 
 span.card-header {
-  min-width: 390px;
+  min-width: 450px;
 }
 
 .card .card-summary {
@@ -57,9 +55,8 @@ span.card-header {
   background-color: rgba(255, 255, 255, 0);
 }
 .card .card-title {
-  background: rgba(237, 237, 237, 0.85);
+  background: rgba(247, 206, 67, 0.85);
   padding: 3.5% 0 2.5% 0;
-  color: black;
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   position: absolute;
@@ -72,78 +69,77 @@ span.card-header {
   padding: 0 3.5%;
   margin: 0;
 }
-// .card .card-meta {
-//   max-height: 0;
-//   overflow: hidden;
-//   color: #666;
-//   font-size: .78em;
-//   text-transform: uppercase;
-//   position: absolute;
-//   bottom: 5%;
-//   padding: 0 5%;
-//   -moz-transition-property: max-height;
-//   -o-transition-property: max-height;
-//   -webkit-transition-property: max-height;
-//   transition-property: max-height;
-//   -moz-transition-duration: 0.4s;
-//   -o-transition-duration: 0.4s;
-//   -webkit-transition-duration: 0.4s;
-//   transition-duration: 0.4s;
-//   -moz-transition-timing-function: ease-in-out;
-//   -o-transition-timing-function: ease-in-out;
-//   -webkit-transition-timing-function: ease-in-out;
-//   transition-timing-function: ease-in-out;
-// }
 .card:hover,
 .card:focus {
-  background: white;
   -moz-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
 }
 .card:hover .card-title,
 .card:focus .card-title {
-  background: rgba(255, 208, 209, 0.95);
+  background: rgba(247, 206, 67, 0.95);
 }
 .card:hover .card-meta,
 .card:focus .card-meta {
   max-height: 1em;
 }
 
-
-h1{
-  font-family: 'Cabin', sans-serif;
+h1 {
+  font-family: "Cabin", sans-serif;
   font-style: bold;
   font-size: 90px;
 }
 
-h2{
-  font-family: 'Cabin', sans-serif;
+h2 {
+  font-family: "Cabin", sans-serif;
 }
 
-.panel-default > .panel-heading{
-  background-color:#f2f7f8
-
+.panel-default > .panel-heading {
+  background-color: #f2f7f8;
 }
 
-.panel-heading{
+.panel-heading {
   border-style: none;
 }
 
-.panel-footer{
+.panel-footer {
   border-style: none;
 }
 
-a { 
-  color: black;
+.cards > a {
+  text-decoration: none;
+}
+
+.card-summary {
+  background-color: rgba(27, 44, 52, 0.7);
 }
 
 .panel-body {
-    opacity: 0.8;
-    
+  opacity: 0.8;
 }
 
 .panel-body:hover {
-    opacity: 1.0;
-   
+  opacity: 1;
+}
+
+@mixin bgimage($name) {
+  $url: "/assets/#{$name}.jpg";
+  background: url($url);
+  background-size: cover;
+}
+
+.bg-cat1 {
+  @include bgimage(eletronics);
+}
+
+.bg-cat2 {
+  @include bgimage(furniture);
+}
+
+.bg-cat3 {
+  @include bgimage(sport equipment);
+}
+
+.bg-cat4 {
+  @include bgimage(tools);
 }

@@ -61,11 +61,6 @@
 
         <div class="panel-heading">
           <%= link_to "Edit Profile", edit_user_registration_path, class: "badge badge-pill badge-info" %>
-          <% if @card.blank? %>
-            <%= link_to "Add Payment Method", payment_method_path, class: "badge badge-pill badge-info" %>
-          <% else @card %>
-            <!-- <%= link_to "Edit Payment Method", payment_method_path, class: "badge badge-info" %> -->
-          <% end %>
           <% if @product.blank? %>
             <%= link_to "Add listing", new_product_path, class: "badge badge-pill badge-info" %>
           <% else %>
@@ -99,13 +94,13 @@
                 <div class="col-md-12">
                   <div class="panel panel-default  panel--styled">
                     <div class="panel-body">
-                      <div class="col-md-5">
+                      <div class="col-md-4">
                         <%= image_tag product.image.url(:medium), class: "card-img-left" %>
                       </div>
                       <div class="col-md-5">
                         <h2 class="card-text"><%= product.name %></h2>
                         <p class="card-text"><%= product.description %></p>
-                        <p class="card-text">Price per day Cad$ <%= product.price %>.00</p>
+                        <p class="card-text">Price per day CAD$ <%= product.price %>.00</p>
                       </div>
                       <div class="col-md-2">
                         <%= button_to " edit ", edit_product_path(product.id), :method=> :get, class: "btn btn-primary btn-block " %>
@@ -136,22 +131,18 @@
                     		<div class="col-md-12">
                     			<div class="panel panel-default  panel--styled">
                     				<div class="panel-body">
-                  						<div class="col-md-5">
+                  						<div class="col-md-4">
                                 <%=image_tag booking.product.image.url(:medium), class: "card-img-left" %>
                             	</div>
                               <div class="col-md-5">
                                 <h2 class="card-text"><%= booking.product.name %></h2>
                                 <p class="card-text"><%= booking.product.description %></p>
-                                <p class="card-text">Price per day Cad$ <%= booking.total %>.00</p>
+                                <p class="card-text">Total Price CAD$ <%= booking.total %>.00</p>
                                 <p class="card-text">Booking start date <%= booking.from_date %></p>
                                 <p class="card-text">Booking end date <%= booking.to_date %></p>
                               </div>
-                              <div class="col-md-2">
-                                <%= button_to " edit ", root_path, class: "btn btn-primary btn-block" %>
-                                  <%= button_to "cancel", booking_path(booking_id), :method=> :delete, class: "btn btn-danger btn-block " %>
+                              <div class="col-md-3">
                                 <% if @card.blank? %>
-                                <%= button_to "Pay on Pickup",root_path, class: "btn btn-success btn-block" %>
-                                <% else @card %>
                                 <%= form_tag perform_stripe_charge_path, class: "stripe" do  %>
                                   <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
