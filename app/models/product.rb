@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
 
-  has_attached_file :image, styles:  { medium: "300x300>", large: "450x450>" }
+  has_attached_file :image, styles:  { medium: "300x300>", large: "420x420>" }
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
