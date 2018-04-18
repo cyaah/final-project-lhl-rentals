@@ -1,6 +1,18 @@
 class BookingsController < ApplicationController
   protect_from_forgery prepend:
   true
+
+  before_action :require_permission
+
+  def require_permission
+    if current_user.blank?
+      flash[:alert] = "Please login!"
+      redirect_to new_user_session_path
+    end
+  end
+
+
+
   def create
     product = Product.find(params[:product_id])
 
@@ -36,7 +48,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    
+
 		@booking = Booking.find params [:id]
     @user = @booking.user
 		@booking.destroy
