@@ -1,14 +1,32 @@
-<section class="card-container">
-    <article class="card">
-        <header class="card__title">
-            <h3>Hello World</h3>
-        </header>
-        <figure class="card__thumbnail">
-            <img src="http://placekitten.com/700/287">
-        </figure>
-        <main class="card__description">
-            Lorem Ipsum dolor amet sun Lorem Ipsum dolor amet sun Lorem Ipsum dolor amet sun
-        </main>
-        <a href="#" class="button">Call to Action</a>
-    </article>
-</section>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <h1>Seacrh Results</h1>
+       <%  @results.each do |product| %>
+      <div class="panel-heading">
+        <h2><%=link_to product.name, product_path(product.id) %></h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default  panel--styled">
+            <div class="panel-body">
+              <div class="col-md-3 col-sd-5">
+                <%= link_to image_tag(product.image.url(:medium), :class => "card-img-left"), product_path(product.id) %>
+              </div>
+              <div class="col-md-6 col-sd-4 ">
+                <p class="card-text "><%= product.description %></p>
+              </div>
+              <div class="col-md-2">
+                <p class="card-text">Price per day</p>
+                <p class="card-text">$CAD <strong><%= product.price %>.00</strong></p>
+              </div>
+            </div>
+            <div class="panel-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
