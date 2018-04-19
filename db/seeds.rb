@@ -53,15 +53,40 @@ Product.destroy_all
 					})
 end
 
-5.times do |index|
-	cat2.products.create! ({name: Faker::Commerce.product_name,
+	cat2.products.create! ({name:"Grey Couch",
 					description: Faker::Lorem.sentence(50, false, 0),
-					image: open_asset("f#{index + 1}.jpg"),
+					image: open_asset("Couch-table.jpg"),
 					price: Faker::Commerce.price,
 					start_availability: DateTime.new(2018, 4, 13),
 					end_availability: DateTime.new(2018, 06, 01)
 					})
-end
+
+	cat2.products.create! ({name: "L Couch",
+					description: Faker::Lorem.sentence(50, false, 0),
+					image: open_asset("lcouch.jpg"),
+					price: Faker::Commerce.price,
+					start_availability: DateTime.new(2018, 4, 13),
+					end_availability: DateTime.new(2018, 06, 01)
+					})
+
+	cat2.products.create! ({name: "Black Chair",
+					description: Faker::Lorem.sentence(50, false, 0),
+					image: open_asset("blackchair.jpg"),
+					price: Faker::Commerce.price,
+					start_availability: DateTime.new(2018, 4, 13),
+					end_availability: DateTime.new(2018, 06, 01)
+					})
+
+	cat2.products.create! ({name: Faker::Commerce.product_name,
+					description: Faker::Lorem.sentence(50, false, 0),
+					image: open_asset("diningTable.jpg"),
+					price: Faker::Commerce.price,
+					start_availability: DateTime.new(2018, 4, 13),
+					end_availability: DateTime.new(2018, 06, 01)
+					})
+
+
+
 
 5.times do |index|
 	cat3.products.create! ({name: Faker::Commerce.product_name,
@@ -98,8 +123,8 @@ end
   cat2.products.create! ({name: Faker::Commerce.product_name,
 					description: Faker::Lorem.sentence(50, false, 0),
 					image: open_asset('f9.jpg'),
-          price: Faker::Commerce.price,
-          user_id:1,
+          			price: Faker::Commerce.price,
+         		 user_id:1,
 					start_availability: DateTime.new(2018, 4, 13),
 					end_availability: DateTime.new(2018, 06, 01)
 					})

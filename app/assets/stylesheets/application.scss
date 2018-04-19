@@ -5,6 +5,8 @@
 
 //FONTS
 @import url("https://fonts.googleapis.com/css?family=Cabin");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 
 // INDEX PAGE
 @import "pages.scss";
@@ -25,6 +27,7 @@
 a {
   color: #1b2c34;
   text-decoration: none;
+ 
 }
 //STRIPE FORM
 
@@ -74,6 +77,10 @@ a {
   text-align: center;
 }
 
+.productShow{
+  width:40%;
+}
+
 h1 {
   font-family: "Cabin", sans-serif;
   font-style: "bold";
@@ -89,4 +96,9 @@ h1 {
   height: 50px;
   top: -1%;
   border-radius: 1000px;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+
 }
