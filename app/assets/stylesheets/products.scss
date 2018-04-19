@@ -33,6 +33,13 @@ main section.products-show {
   }
 }
 
+.cal {
+  background-image: url('jess.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
 form.stripe {
   text-align: center;
   padding: 10px;
@@ -69,4 +76,15 @@ select#review_rating {
 
 img {
   width: 100%;
+}
+
+.form-group label {
+
+    font-size: 27px;
+}
+
+#spl-btn {
+  height: 70px;
+  font-size: 20px;
+  width: 185px;
 }

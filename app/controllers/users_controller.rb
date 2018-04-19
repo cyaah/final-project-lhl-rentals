@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def show
 
-    @user = User.f ind(params[:id])
+    @user = User.find(params[:id])
     @booking = @user.bookings.includes(:product)
     @products = @user.products
 
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @booking = @user.bookings
       @product = @user.products
-      binding.pry
       @card = {}
     else
       @user = User.find(params[:id])

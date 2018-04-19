@@ -30,7 +30,7 @@
 }
 
 span.card-header {
-  min-width: 650px;
+  min-width: 550px;
 }
 
 .card .card-summary {
@@ -87,7 +87,7 @@ span.card-header {
 h1 {
   font-family: "Cabin", sans-serif;
   font-style: bold;
-  font-size: 90px;
+  font-size: 75px;
 }
 
 h2 {
@@ -142,11 +142,11 @@ h2 {
 .box .innerbox {
   position: relative;
   display: flex;
-  transition: opacity 400ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
 }
 .box .innerbox.is-sent {
-  -webkit-animation: launch 1.8s ease-in-out;
-  animation: launch 1.8s ease-in-out;
+  -webkit-animation: launch 400ms ease-in-out;
+  animation: launch 430ms ease-in-out;
 }
 
 .box .innerbox .send {

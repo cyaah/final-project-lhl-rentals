@@ -64,7 +64,7 @@ end
 	cat2.products.create! ({name: "L Couch",
 					description: Faker::Lorem.sentence(50, false, 0),
 					image: open_asset("lcouch.jpg"),
-					price: Faker::Commerce.price,
+					price: "5",
 					start_availability: DateTime.new(2018, 4, 13),
 					end_availability: DateTime.new(2018, 06, 01)
 					})
