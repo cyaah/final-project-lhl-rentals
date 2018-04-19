@@ -11,7 +11,7 @@
 1.  Fork this repository, then clone your fork of this repository.
 2.  Install dependencies using the `bundle install` command in the root.
 3.  Create database using the `rails db:migration`.
-4.  Update initial Google longitude & latitude using the `rails geocode:all CLASS=User`.
+4.  Update initial Google longitude & latitude using the `rake geocode:all CLASS=User`.
 5.  Start the web server using the `rails s` command.
 6.  Go to <http://localhost:3000/> in your browser.
 

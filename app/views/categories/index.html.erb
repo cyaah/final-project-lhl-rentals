@@ -2,10 +2,10 @@
   <h1> All Categories</h1>
 </header>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12  box">
     <%  @category.each do |category| %>
-    <div class="cards col-md-4">
-      <a class="card bg-cat<%=category.id%>" href="/categories/<%=category.id%>">
+    <div class="cards col-md-4 innerbox">
+      <a class="card bg-cat<%=category.id%> send" href="/categories/<%=category.id%>">
         <span class="card-header">
           <span class="card-title">
 
@@ -19,3 +19,14 @@
     <% end %>
   </div>
 </div>
+
+
+<script type="text/javascript">
+$('.box .send').click(function(){
+  $(this).parents('.innerbox').addClass('is-sent');
+  setTimeout(function(){
+    $('.innerbox').removeClass('is-sent');
+  }, 1800);
+
+});
+</script>
