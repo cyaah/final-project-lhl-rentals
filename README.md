@@ -11,7 +11,7 @@ Rentals is a web application that connects users who are looking to rent or lend
 
 1.  Fork this repository, then clone your fork of this repository.
 2.  Install dependencies using the `bundle install` command in the root.
-3.  Create database using the `rails db:migration`.
+3.  Create database using the `rake db:schema:load, rake db:setup`.
 4.  Update initial Google longitude & latitude using the `rake geocode:all CLASS=User`.
 5.  Start the web server using the `rails s` command.
 6.  Go to <http://localhost:3000/> in your browser.

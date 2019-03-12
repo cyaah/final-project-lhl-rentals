@@ -7,7 +7,7 @@ Geocoder.configure(
   # use_https: false,           # use HTTPS for lookup requests? (if supported)
   # http_proxy: nil,            # HTTP proxy server (user:pass@host:port)
   # https_proxy: nil,           # HTTPS proxy server (user:pass@host:port)
-  api_key: nil,               # API key for geocoding service
+  api_key: 'AIzaSyDXIfcwPPyVwiTZfk-Q7znd2wDXOy3fm4U',               # API key for geocoding service
   # cache: Redis.new,                 # cache object (must respond to #[], #[]=, and #del)
   # cache_prefix: 'geocoder:',  # prefix (string) to use for all cache keys
 
